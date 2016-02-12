@@ -4,11 +4,10 @@
     using System.Data.Entity;
     using System.Linq;
 
-    using Common.Models;
+    using H8QMedia.Data.Common.Models;
+    using H8QMedia.Data.Models;
 
     using Microsoft.AspNet.Identity.EntityFramework;
-
-    using H8QMedia.Data.Models;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -16,6 +15,32 @@
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        public IDbSet<Article> Articles { get; set; }
+
+        public IDbSet<Category> Categories { get; set; }
+
+        public IDbSet<Comment> Comments { get; set; }
+
+        public IDbSet<Course> Courses { get; set; }
+
+        public IDbSet<CourseObjective> CourseObjectives { get; set; }
+
+        public IDbSet<FileInfo> FileInfos { get; set; }
+
+        public IDbSet<Image> Images { get; set; }
+
+        public IDbSet<InteractiveEntity> InteractiveEntities { get; set; }
+
+        public IDbSet<Lesson> Lessons { get; set; }
+
+        public IDbSet<Like> Likes { get; set; }
+
+        public IDbSet<Purchase> Purchases { get; set; }
+
+        public IDbSet<SellingItem> SellingItems { get; set; }
+
+        public IDbSet<UserTypeCategory> UserTypeCategories { get; set; }
 
         public static ApplicationDbContext Create()
         {

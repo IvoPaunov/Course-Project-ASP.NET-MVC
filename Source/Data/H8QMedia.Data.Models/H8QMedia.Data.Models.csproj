@@ -60,7 +60,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="Article.cs" />
+    <Compile Include="ArticleType.cs" />
+    <Compile Include="Comment.cs" />
+    <Compile Include="Course.cs" />
+    <Compile Include="CourseObjective.cs" />
+    <Compile Include="InteractiveEntity.cs" />
+    <Compile Include="Like.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="Purchase.cs" />
+    <Compile Include="PurchaseStatus.cs" />
+    <Compile Include="UserTypeCategory.cs" />
+    <Compile Include="FileInfo.cs" />
+    <Compile Include="Image.cs" />
+    <Compile Include="Lesson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="SellingItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

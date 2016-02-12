@@ -1,7 +1,6 @@
-﻿namespace H8QMedia.Data.Common
+﻿namespace H8QMedia.Data.Common.Repositories
 {
     using System.Linq;
-
     using H8QMedia.Data.Common.Models;
 
     public interface IDbRepository<T> : IDbRepository<T, int>

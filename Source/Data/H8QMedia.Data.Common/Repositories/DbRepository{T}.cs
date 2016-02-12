@@ -1,9 +1,8 @@
-﻿namespace H8QMedia.Data.Common
+﻿namespace H8QMedia.Data.Common.Repositories
 {
     using System;
     using System.Data.Entity;
     using System.Linq;
-
     using H8QMedia.Data.Common.Models;
 
     // TODO: Why BaseModel<int> instead BaseModel<TKey>?

@@ -11,8 +11,9 @@
 
     using Data;
     using Data.Common;
+    using H8QMedia.Data.Common.Repositories;
 
-    //using Services.Data;
+    // using Services.Data;
     using Services.Web;
 
     public static class AutofacConfig
@@ -59,7 +60,6 @@
 
            // var servicesAssembly = Assembly.GetAssembly(typeof(IJokesService));
            // builder.RegisterAssemblyTypes(servicesAssembly).AsImplementedInterfaces();
-
             builder.RegisterGeneric(typeof(DbRepository<>))
                 .As(typeof(IDbRepository<>))
                 .InstancePerRequest();
