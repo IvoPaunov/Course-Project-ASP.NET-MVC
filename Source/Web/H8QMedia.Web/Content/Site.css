@@ -1,6 +1,27 @@
-﻿body {
+﻿html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
+    margin-bottom: 80px;
+}
+
+.footer {
+ 
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+}
+
+.footer > p {
+    padding-top: 1.3em;
+       border-top: 1px solid #808080;
 }
 
 /* Set padding to keep content from hitting the edges */

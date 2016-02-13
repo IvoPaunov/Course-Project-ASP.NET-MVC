@@ -1,7 +1,9 @@
 ﻿namespace H8QMedia.Data.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
+    using H8QMedia.Data.Common;
     using H8QMedia.Data.Common.Models;
 
     public class Purchase : BaseModel<int>
@@ -15,6 +17,7 @@
 
         public PurchaseStatus Status { get; set; }
 
+        [MaxLength(ValidationConstants.MaxPurchaseCommentLength)]
         public string Comment { get; set; }
 
         public string BuyerId { get; set; }
@@ -24,6 +27,10 @@
         public string SellerId { get; set; }
 
         public virtual ApplicationUser Seller { get; set; }
+
+        public int AddressId { get; set; }
+
+        public virtual Address Address { get; set; }
 
         public virtual ICollection<SellingItem> Items
         {

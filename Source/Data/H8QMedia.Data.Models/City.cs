@@ -1,15 +1,15 @@
 ﻿namespace H8QMedia.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
-
     using H8QMedia.Data.Common;
     using H8QMedia.Data.Common.Models;
 
-    public class UserTypeCategory : BaseModel<int>
+    public class City : BaseModel<int>
     {
         [Required]
-        [MinLength(ValidationConstants.MinUserTypeCategoryNameLength)]
-        [MaxLength(ValidationConstants.MaxUserTypeCategoryNameLength)]
+        [MinLength(ValidationConstants.MinCityNameLength)]
+        [MaxLength(ValidationConstants.MaxCityNameLength)]
         public string Name { get; set; }
+
     }
 }

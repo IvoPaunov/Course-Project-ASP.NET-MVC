@@ -1,7 +1,9 @@
 ﻿namespace H8QMedia.Data.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
+    using H8QMedia.Data.Common;
     using H8QMedia.Data.Common.Models;
 
     public class InteractiveEntity : BaseModel<int>
@@ -17,8 +19,12 @@
             this.images = new HashSet<Image>();
         }
 
+        [Required]
+        [MinLength(ValidationConstants.MinInteractiveEntityTitleLength)]
+        [MaxLength(ValidationConstants.MaxInteractiveEntityTitleLength)]
         public string Title { get; set; }
 
+        [MaxLength(ValidationConstants.MaxInteractiveEntityDescriptionLength)]
         public string Description { get; set; }
 
         public virtual ICollection<Comment> Comments

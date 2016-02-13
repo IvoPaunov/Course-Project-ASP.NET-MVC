@@ -59,10 +59,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs" />
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Article.cs" />
     <Compile Include="ArticleType.cs" />
+    <Compile Include="City.cs" />
     <Compile Include="Comment.cs" />
+    <Compile Include="Country.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="CourseObjective.cs" />
     <Compile Include="InteractiveEntity.cs" />

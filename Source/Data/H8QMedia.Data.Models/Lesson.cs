@@ -1,10 +1,16 @@
 ﻿namespace H8QMedia.Data.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
+    using H8QMedia.Data.Common;
     using H8QMedia.Data.Common.Models;
 
     public class Lesson : InteractiveEntity
     {
-        public string YoutubeId { get; set; }
+        [MaxLength(ValidationConstants.MaxLessonYoutubeVideoIdLength)]
+        public string YoutubeVideoId { get; set; }
+
+        public bool IsPublic { get; set; }
 
         public string TrainerId { get; set; }
 

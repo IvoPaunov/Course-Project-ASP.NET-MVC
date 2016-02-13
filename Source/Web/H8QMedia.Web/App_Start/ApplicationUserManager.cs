@@ -33,11 +33,12 @@
             // Configure validation logic for passwords
             manager.PasswordValidator = new PasswordValidator
                                             {
-                                                RequiredLength = 6,
-                                                RequireNonLetterOrDigit = true,
-                                                RequireDigit = true,
-                                                RequireLowercase = true,
-                                                RequireUppercase = true,
+                // TODO: Make password more secure before deploy
+                                                RequiredLength = 3,
+                                                RequireNonLetterOrDigit = false,
+                                                RequireDigit = false,
+                                                RequireLowercase = false,
+                                                RequireUppercase = false,
                                             };
 
             // Configure user lockout defaults
