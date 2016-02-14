@@ -42,7 +42,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoriesService.cs" />
+    <Compile Include="CitiesService.cs" />
+    <Compile Include="CommentsService.cs" />
+    <Compile Include="CourseObjectivesService.cs" />
+    <Compile Include="CoursesService.cs" />
+    <Compile Include="Contracts\ICategoriesService.cs" />
+    <Compile Include="Contracts\ICitiesService.cs" />
+    <Compile Include="Contracts\ICommentsService.cs" />
+    <Compile Include="Contracts\ICourseObjectivesService.cs" />
+    <Compile Include="Contracts\ICoursesService.cs" />
+    <Compile Include="Contracts\IImagesService.cs" />
+    <Compile Include="Contracts\ILessonsService.cs" />
+    <Compile Include="Contracts\ILikesService.cs" />
+    <Compile Include="ImagesService.cs" />
+    <Compile Include="Contracts\IMessagesService.cs" />
+    <Compile Include="Contracts\IPurchasesService.cs" />
+    <Compile Include="Contracts\ISellingItemsService.cs" />
+    <Compile Include="Contracts\IUsersService.cs" />
+    <Compile Include="LessonsService.cs" />
+    <Compile Include="LikesService.cs" />
+    <Compile Include="MessagesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchasesService.cs" />
+    <Compile Include="SellingItemsService.cs" />
+    <Compile Include="UsersService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\H8QMedia.Data.Common\H8QMedia.Data.Common.csproj">

@@ -2,8 +2,10 @@
 {
     using System.Web.Mvc;
 
+    using H8QMedia.Common;
     using H8QMedia.Web.Controllers;
 
+    [Authorize(Roles = ApplicationRoles.Admin)]
     public class UsersController : BaseController
     {
         public ActionResult Index()

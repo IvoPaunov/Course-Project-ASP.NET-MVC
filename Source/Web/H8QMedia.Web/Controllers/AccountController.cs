@@ -4,8 +4,10 @@
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
+
     using H8QMedia.Data.Models;
     using H8QMedia.Web.ViewModels.Account;
+
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;

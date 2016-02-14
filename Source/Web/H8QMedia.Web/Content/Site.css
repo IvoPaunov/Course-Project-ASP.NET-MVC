@@ -43,3 +43,35 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.left-margin {
+    margin-left: 15px;
+}
+
+.right-margin {
+    margin-right: 15px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.dropdown-menu {
+    -moz-min-width: 200px;
+    -ms-min-width: 200px;
+    -o-min-width: 200px;
+    -webkit-min-width: 200px;
+    min-width: 200px;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.wrap {
+    white-space: normal;
+}
+
+.fa-in-dropdown {
+    margin-top: 6px;
+}

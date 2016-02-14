@@ -24,6 +24,12 @@
 
         public IDbSet<Course> Courses { get; set; }
 
+        public IDbSet<Country> Countries { get; set; }
+
+        public IDbSet<City> Cities { get; set; }
+
+        public IDbSet<Address> Addresses { get; set; }
+
         public IDbSet<CourseObjective> CourseObjectives { get; set; }
 
         public IDbSet<FileInfo> FileInfos { get; set; }
