@@ -8,8 +8,8 @@
     public class UserTypeCategory : BaseModel<int>
     {
         [Required]
-        [MinLength(ValidationConstants.MinUserTypeCategoryNameLength)]
-        [MaxLength(ValidationConstants.MaxUserTypeCategoryNameLength)]
+        [MinLength(ValidationConstants.MinUserTypeCategoryNameLength, ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
+        [MaxLength(ValidationConstants.MaxUserTypeCategoryNameLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Name { get; set; }
     }
 }

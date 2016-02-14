@@ -7,8 +7,8 @@
     public class Message : BaseModel<int>
     {
         [Required]
-        [MinLength(ValidationConstants.MinMessageContentLength)]
-        [MaxLength(ValidationConstants.MaxMessageContentLength)]
+        [MinLength(ValidationConstants.MinMessageContentLength, ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
+        [MaxLength(ValidationConstants.MaxMessageContentLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Content { get; set; }
 
         public string SenderId { get; set; }

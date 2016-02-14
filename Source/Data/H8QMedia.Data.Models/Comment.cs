@@ -8,8 +8,8 @@
     public class Comment : BaseModel<int>
     {
         [Required]
-        [MinLength(ValidationConstants.MinCommentContentLength)]
-        [MaxLength(ValidationConstants.MaxCommentContentLength)]
+        [MinLength(ValidationConstants.MinCommentContentLength, ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
+        [MaxLength(ValidationConstants.MaxCommentContentLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Content { get; set; }
 
         public string UserId { get; set; }

@@ -26,7 +26,8 @@
                         "~/Content/bootstrap.css",
                         "~/Content/bootstrap-theme.css",
                         "~/Content/custom.min.css",
-                        "~/Content/site.css"));
+                        "~/Content/site.css",
+                        "~/Content/font-awesome.min.css"));
         }
     }
 }

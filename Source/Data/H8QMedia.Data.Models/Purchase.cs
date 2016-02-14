@@ -17,7 +17,7 @@
 
         public PurchaseStatus Status { get; set; }
 
-        [MaxLength(ValidationConstants.MaxPurchaseCommentLength)]
+        [MaxLength(ValidationConstants.MaxPurchaseCommentLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Comment { get; set; }
 
         public string BuyerId { get; set; }

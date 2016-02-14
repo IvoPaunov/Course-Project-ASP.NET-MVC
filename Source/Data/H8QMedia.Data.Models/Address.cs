@@ -15,23 +15,22 @@
         public virtual Country Country { get; set; }
 
         [Required]
-        [MinLength(ValidationConstants.MinAddressLineLength)]
-        [MaxLength(ValidationConstants.MaxAddressLineLength)]
+        [MinLength(ValidationConstants.MinAddressLineLength, ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
+        [MaxLength(ValidationConstants.MaxAddressLineLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string AddressLineOne { get; set; }
 
-        [Required]
-        [MinLength(ValidationConstants.MinAddressLineLength)]
-        [MaxLength(ValidationConstants.MaxAddressLineLength)]
+        [MinLength(ValidationConstants.MinAddressLineLength, ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
+        [MaxLength(ValidationConstants.MaxAddressLineLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string AddressLineTwo { get; set; }
 
         [Required]
-        [MinLength(ValidationConstants.MinTelephoneNumberLength)]
-        [MaxLength(ValidationConstants.MaxTelephoneNumberLength)]
+        [MinLength(ValidationConstants.MinTelephoneNumberLength, ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
+        [MaxLength(ValidationConstants.MaxTelephoneNumberLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string TelephoneNumber { get; set; }
 
         [Required]
-        [MinLength(ValidationConstants.MinRecipientNamesLength)]
-        [MaxLength(ValidationConstants.MaxRecipientNamesLength)]
+        [MinLength(ValidationConstants.MinRecipientNamesLength, ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
+        [MaxLength(ValidationConstants.MaxRecipientNamesLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string RecipientNames { get; set; }
     }
 }

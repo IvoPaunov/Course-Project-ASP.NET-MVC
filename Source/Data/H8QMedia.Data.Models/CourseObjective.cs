@@ -16,11 +16,11 @@
         }
 
         [Required]
-        [MinLength(ValidationConstants.MinCourseObjectiveNameLength)]
-        [MaxLength(ValidationConstants.MaxCourseObjectiveNameLength)]
+        [MinLength(ValidationConstants.MinCourseObjectiveNameLength, ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
+        [MaxLength(ValidationConstants.MaxCourseObjectiveNameLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Name { get; set; }
 
-        [MaxLength(ValidationConstants.MaxCourseObjectiveDescriptionLength)]
+        [MaxLength(ValidationConstants.MaxCourseObjectiveDescriptionLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Description { get; set; }
 
         public virtual ICollection<Lesson> Lessons

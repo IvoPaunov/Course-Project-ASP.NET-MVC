@@ -16,11 +16,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("H8Я Media", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("H8Я Media", "Index", "Home", new { Area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { Area = "" }, new { @class = "text-danger" })</li>
+                    <li>@Html.ActionLink("About", "Index", "About", new { Area = "" }, null)</li>
+                    <li>@Html.ActionLink("Art", "Index", "Art", new { Area = "" }, null)</li>
+                    <li>@Html.ActionLink("Design", "Index", "Design", new { Area = "" }, null)</li>
+                    <li>@Html.ActionLink("School", "Index", "School", new { Area = "" }, null)</li>
+                    <li>@Html.ActionLink("Contacts", "Index", "Contacts", new { Area = "" }, null)</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -30,9 +35,9 @@
         @RenderBody()
     </div>
 
-<footer class="footer text-center container">
-    <p>&copy; @DateTime.Now.Year - H8Я Media powered by Ivo Paounov</p>
-</footer>
+    <footer class="footer text-center container">
+        <p>&copy; @DateTime.Now.Year - H8Я Media powered by Ivo Paounov</p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

@@ -1,16 +1,26 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("LogOff", "Account", new { Area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
     @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="/#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"> </i> @User.Identity.GetUserName() <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/Users/Manage"> <i class="fa fa-cog"></i> Manage</a></li>
+
+                    <li><a href="/Users/Art"> <i class="fa fa-paint-brush"></i> Art</a></li>
+                    <li><a href="/Users/Design"> <i class="fa fa-columns"></i> Design</a></li>
+                    <li><a href="/Users/School"> <i class="fa fa-book"></i> School</a></li>
+                    <li><a href="/Users/Shop"> <i class="fa fa-dollar"></i> Shop</a></li>
+                    
+                    <li class="divider"></li>
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-power-off"> </i> Log off</a></li>
+                </ul>
+            </li>
+        </ul>
     }
 }
 else

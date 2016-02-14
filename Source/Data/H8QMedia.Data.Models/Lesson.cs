@@ -7,7 +7,7 @@
 
     public class Lesson : InteractiveEntity
     {
-        [MaxLength(ValidationConstants.MaxLessonYoutubeVideoIdLength)]
+        [MaxLength(ValidationConstants.MaxLessonYoutubeVideoIdLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string YoutubeVideoId { get; set; }
 
         public bool IsPublic { get; set; }

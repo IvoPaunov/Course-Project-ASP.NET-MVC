@@ -20,11 +20,11 @@
         }
 
         [Required]
-        [MinLength(ValidationConstants.MinInteractiveEntityTitleLength)]
-        [MaxLength(ValidationConstants.MaxInteractiveEntityTitleLength)]
+        [MinLength(ValidationConstants.MinInteractiveEntityTitleLength, ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
+        [MaxLength(ValidationConstants.MaxInteractiveEntityTitleLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Title { get; set; }
 
-        [MaxLength(ValidationConstants.MaxInteractiveEntityDescriptionLength)]
+        [MaxLength(ValidationConstants.MaxInteractiveEntityDescriptionLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Description { get; set; }
 
         public virtual ICollection<Comment> Comments

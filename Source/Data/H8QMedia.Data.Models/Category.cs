@@ -7,11 +7,11 @@
     public class Category : BaseModel<int>
     {
         [Required]
-        [MinLength(ValidationConstants.MinCategoryNameLength)]
-        [MaxLength(ValidationConstants.MaxCategoryNameLength)]
+        [MinLength(ValidationConstants.MinCategoryNameLength, ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
+        [MaxLength(ValidationConstants.MaxCategoryNameLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Name { get; set; }
 
-        [MaxLength(ValidationConstants.MaxCategoryDescriptionLength)]
+        [MaxLength(ValidationConstants.MaxCategoryDescriptionLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Description { get; set; }
     }
 }
