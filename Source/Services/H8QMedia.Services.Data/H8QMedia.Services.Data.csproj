@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressesService.cs" />
+    <Compile Include="ArticlesService.cs" />
     <Compile Include="CategoriesService.cs" />
     <Compile Include="CitiesService.cs" />
     <Compile Include="CommentsService.cs" />
@@ -55,6 +57,8 @@
     <Compile Include="Contracts\IImagesService.cs" />
     <Compile Include="Contracts\ILessonsService.cs" />
     <Compile Include="Contracts\ILikesService.cs" />
+    <Compile Include="Contracts\IAddressesService.cs" />
+    <Compile Include="Contracts\IArticlesService.cs" />
     <Compile Include="ImagesService.cs" />
     <Compile Include="Contracts\IMessagesService.cs" />
     <Compile Include="Contracts\IPurchasesService.cs" />
