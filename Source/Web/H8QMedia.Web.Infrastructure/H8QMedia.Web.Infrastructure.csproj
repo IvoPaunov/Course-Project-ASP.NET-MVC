@@ -36,6 +36,9 @@
       <HintPath>..\..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>D:\Desktop_2.0\Course-Project-ASP.NET-MVC\Source\Web\H8QMedia.Web\Libraries\Kendo\Kendo.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

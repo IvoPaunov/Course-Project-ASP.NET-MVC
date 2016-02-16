@@ -1,12 +1,12 @@
-﻿namespace H8QMedia.Data.Models
+﻿ namespace H8QMedia.Data.Models
 {
     using H8QMedia.Data.Common.Models;
 
     public class Like : BaseModel<int>
     {
-        public string UserId { get; set; }
+        public string FromUserId { get; set; }
 
-        public virtual ApplicationUser User { get; set; }
+        public virtual ApplicationUser FromUser { get; set; }
 
         public int EntityId { get; set; }
 

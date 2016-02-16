@@ -220,6 +220,7 @@
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\DesignController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KendoGridAdministrationController.cs" />
     <Compile Include="Controllers\SchoolController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -234,6 +235,12 @@
     <Compile Include="Areas\Users\ViewModels\Manage\IndexViewModel.cs" />
     <Compile Include="Areas\Users\ViewModels\Manage\ManageLoginsViewModel.cs" />
     <Compile Include="Areas\Users\ViewModels\Manage\ConfigureTwoFactorViewModel.cs" />
+    <Compile Include="Infrastructure\Constants\DisplayTemplatesPaths.cs" />
+    <Compile Include="Infrastructure\Constants\EditorTemplatesPaths.cs" />
+    <Compile Include="Infrastructure\Constants\WebConstants.cs" />
+    <Compile Include="Infrastructure\HtmlHelpers\KendoHelpers.cs" />
+    <Compile Include="Infrastructure\UploadHelpers\ImageUplouder.cs" />
+    <Compile Include="Infrastructure\Validation\ValidateFilesCollectionAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Areas\Users\ViewModels\Manage\SetPasswordViewModel.cs" />
@@ -247,7 +254,15 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\Article\ArticleViewModel.cs" />
+    <Compile Include="ViewModels\Article\InputArticleViewModel.cs" />
+    <Compile Include="ViewModels\Art\ArtIndexViewModel.cs" />
+    <Compile Include="ViewModels\Course\CourseViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Image\ImageViewModel.cs" />
+    <Compile Include="ViewModels\Like\LikeViewModel.cs" />
+    <Compile Include="ViewModels\SellingItem\SellingItemViewModel.cs" />
+    <Compile Include="ViewModels\User\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -443,6 +458,7 @@
     <Content Include="Content\Kendo\kendo.silver.mobile.min.css.map" />
     <Content Include="Content\Kendo\kendo.uniform.min.css.map" />
     <Content Include="Content\Kendo\kendo.uniform.mobile.min.css.map" />
+    <Content Include="Areas\Users\Views\Art\Create.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -510,6 +526,10 @@
     <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Scripts\Kendo\kendo.all.min.js.map" />
     <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js.map" />
+    <Content Include="Views\Shared\DisplayTemplates\Article\ArticleViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Article\InputArticleViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Image\ImageViewModel.cshtml" />
+    <Content Include="Views\Art\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -535,7 +555,13 @@
     <Folder Include="Content\Kendo\Silver\" />
     <Folder Include="Content\Kendo\textures\" />
     <Folder Include="Content\Kendo\Uniform\" />
+    <Folder Include="ViewModels\Category\" />
+    <Folder Include="ViewModels\Comment\" />
+    <Folder Include="ViewModels\Lesson\" />
+    <Folder Include="ViewModels\Message\" />
+    <Folder Include="ViewModels\Purchase\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Shared\EditorTemplates\Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

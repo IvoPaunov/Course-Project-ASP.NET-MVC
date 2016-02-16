@@ -11,5 +11,9 @@
         public string SellerId { get; set; }
 
         public ApplicationUser Seller { get; set; }
+
+        public int EntityId { get; set; }
+
+        public virtual InteractiveEntity Entity { get; set; }
     }
 }

@@ -13,6 +13,8 @@
 
         public string SenderId { get; set; }
 
+        public bool IsSeen { get; set; }
+
         public virtual ApplicationUser Sender { get; set; }
 
         public string RecipientId { get; set; }

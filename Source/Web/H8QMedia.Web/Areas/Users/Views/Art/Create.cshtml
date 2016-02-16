@@ -1,0 +1,11 @@
+﻿@model H8QMedia.Web.ViewModels.Article.InputArticleViewModel
+@{
+    ViewBag.Title = "Art";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Art Profile Create</h2>
+
+<div class="container">
+    @Html.EditorFor(model => Model, EditorTemplatesPaths.InputArticleViewModel)
+</div>

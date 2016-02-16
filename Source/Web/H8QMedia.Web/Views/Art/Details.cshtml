@@ -1,0 +1,61 @@
+﻿@model H8QMedia.Web.ViewModels.Article.ArticleViewModel
+
+@{
+    Layout = null;
+}
+
+<div class="container">
+    <h4>ArticleViewModel</h4>
+    <hr/>
+    <div class="col-md-12">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AuthorName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AuthorName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LikesCount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LikesCount)
+            </dd>
+
+        </dl>
+    </div>
+    <div class="col-md-12">
+        @foreach (var img in Model.Images)
+        {
+            <div class="col-lg-3">
+                @Html.DisplayFor(model => img, DisplayTemplatesPaths.ImageViewModel)
+            </div>
+        }
+
+    </div>
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+</div>

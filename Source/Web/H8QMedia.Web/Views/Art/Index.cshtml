@@ -1,8 +1,57 @@
 ﻿
-@*@{
-    ViewBag.Title = "Art";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}*@
+@{
+    const string ControllerName = "Art";
+    ViewBag.Title = ControllerName;
+}
 
+@model H8QMedia.Web.ViewModels.Art.ArtIndexViewModel
 <h2>Art Public</h2>
+<div class="container">
+    
+    @foreach (var art in Model.ArtArticles)
+    {
+        <div class="col-md-6">
+            @Html.DisplayFor(model => art, DisplayTemplatesPaths.ArticleViewModel);
+        </div>
+    }
 
+</div>
+
+
+        @*@(Html.FullFeaturedGrid<ArticleViewModel>(ControllerName, m => m.Id, 5,
+
+                columns =>
+                {
+                    columns.Bound(p => p.Id);
+                    columns.Bound(p => p.Title).Width(120);
+                    columns.Bound(p => p.Author).Width(120);
+                    columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+                }
+            ))*@
+
+
+        @*@(Html.Kendo().Grid<ArticleViewModel>()
+                .Name("grid")
+                .Columns(columns =>
+                {
+                    columns.Bound(p => p.Id);
+                    columns.Bound(p => p.Title).Width(120);
+                    columns.Bound(p => p.Author).Width(120);
+                    columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+                })
+                .ToolBar(toolbar => toolbar.Create())
+                .Editable(editable => editable.Mode(GridEditMode.PopUp))
+                .Pageable()
+                .Sortable()
+                .Scrollable()
+                .HtmlAttributes(new { style = "height:550px;" })
+                .DataSource(dataSource => dataSource
+                    .Ajax()
+                    .PageSize(20)
+                    .Model(model => model.Id(p => p.Id))
+                    .Create(update => update.Action("Create", ControllerName))
+                    .Read(read => read.Action("Read", ControllerName))
+                    .Update(update => update.Action("Update", ControllerName))
+                    .Destroy(update => update.Action("Destroy", ControllerName))
+                )
+            )*@

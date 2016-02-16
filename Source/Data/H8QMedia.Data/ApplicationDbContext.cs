@@ -15,9 +15,7 @@
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
-        public IDbSet<Article> Articles { get; set; }
-
+        
         public IDbSet<Category> Categories { get; set; }
 
         public IDbSet<Comment> Comments { get; set; }
@@ -36,13 +34,13 @@
 
         public IDbSet<Image> Images { get; set; }
 
-        public IDbSet<InteractiveEntity> InteractiveEntities { get; set; }
-
         public IDbSet<Lesson> Lessons { get; set; }
 
         public IDbSet<Like> Likes { get; set; }
 
         public IDbSet<Purchase> Purchases { get; set; }
+
+        public IDbSet<Article> Articles { get; set; }
 
         public IDbSet<SellingItem> SellingItems { get; set; }
 

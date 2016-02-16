@@ -1,5 +1,6 @@
 ﻿namespace H8QMedia.Data.Seed
 {
+    using System;
     using System.Linq;
     using H8QMedia.Common;
     using H8QMedia.Data.Models;
@@ -11,7 +12,7 @@
         public void Seed(ApplicationDbContext context)
         {
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+          //  var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
             if (!context.Users.Any(u => u.UserName == "IvkoBivko"))
             {
@@ -19,6 +20,7 @@
                 {
                     Email = "ivo.paunov@gmail.com",
                     UserName = "IvkoBivko",
+                    CreatedOn = DateTime.Now
                 };
 
                 userManager.Create(user, "123456");

@@ -15,5 +15,9 @@
         public string UserId { get; set; }
 
         public virtual ApplicationUser User { get; set; }
+
+        public int EntityId { get; set; }
+
+        public virtual InteractiveEntity Entity { get; set; }
     }
 }

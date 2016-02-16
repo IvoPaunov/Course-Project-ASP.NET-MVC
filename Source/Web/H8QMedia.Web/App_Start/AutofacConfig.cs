@@ -12,6 +12,7 @@
     using Data;
     using Data.Common;
     using H8QMedia.Data.Common.Repositories;
+    using H8QMedia.Services.Data.Contracts;
 
     // using Services.Data;
     using Services.Web;
@@ -58,10 +59,11 @@
                 .As<IIdentifierProvider>()
                 .InstancePerRequest();
 
-           // var servicesAssembly = Assembly.GetAssembly(typeof(IJokesService));
-           // builder.RegisterAssemblyTypes(servicesAssembly).AsImplementedInterfaces();
-            builder.RegisterGeneric(typeof(DbRepository<>))
-                .As(typeof(IDbRepository<>))
+            var servicesAssembly = Assembly.GetAssembly(typeof(IArticlesService));
+            builder.RegisterAssemblyTypes(servicesAssembly).AsImplementedInterfaces();
+
+            builder.RegisterGeneric(typeof(DbRepository<,>))
+                .As(typeof(IDbRepository<,>))
                 .InstancePerRequest();
 
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())

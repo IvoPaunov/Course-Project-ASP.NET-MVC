@@ -1,4 +1,4 @@
-﻿
+﻿@model H8QMedia.Web.ViewModels.Art.ArtIndexViewModel
 @{
     ViewBag.Title = "Art";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,3 +6,13 @@
 
 <h2>Art Profile</h2>
 
+<div class="container">
+
+    @foreach (var art in Model.ArtArticles)
+    {
+        <div class="col-md-6">
+            @Html.DisplayFor(model => art, DisplayTemplatesPaths.ArticleViewModel);
+        </div>
+    }
+
+    </ div >

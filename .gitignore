@@ -186,6 +186,7 @@ ClientBin/
 node_modules/
 orleans.codegen.cs
 [Kk]endo/
+[Uu]serImages
 
 # RIA/Silverlight projects
 Generated_Code/

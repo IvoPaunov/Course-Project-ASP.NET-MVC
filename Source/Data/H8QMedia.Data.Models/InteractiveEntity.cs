@@ -6,13 +6,13 @@
     using H8QMedia.Data.Common;
     using H8QMedia.Data.Common.Models;
 
-    public class InteractiveEntity : BaseModel<int>
+    public abstract class InteractiveEntity : BaseModel<int>
     {
         private ICollection<Comment> comments;
         private ICollection<Like> likes;
         private ICollection<Image> images;
 
-        public InteractiveEntity()
+        protected InteractiveEntity()
         {
             this.comments = new HashSet<Comment>();
             this.likes = new HashSet<Like>();
