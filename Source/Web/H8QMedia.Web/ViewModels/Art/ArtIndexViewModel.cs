@@ -5,6 +5,10 @@
 
     public class ArtIndexViewModel
     {
+        public int CurrentPage { get; set; }
+
+        public int TotalPages { get; set; }
+
         public IEnumerable<ArticleViewModel> ArtArticles { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Linq;
 
     using H8QMedia.Data.Common;
     using H8QMedia.Data.Common.Models;

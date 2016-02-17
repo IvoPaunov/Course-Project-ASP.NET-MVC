@@ -1,11 +1,15 @@
-﻿@model H8QMedia.Web.ViewModels.Article.InputArticleViewModel
+﻿@model H8QMedia.Web.ViewModels.Article.ArticleInputModel
 @{
-    ViewBag.Title = "Art";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Art - Create new art";
 }
 
-<h2>Art Profile Create</h2>
+@using (Html.BeginForm("Create", "Art", FormMethod.Post, new { enctype = "multipart/form-data", @class = "full-width" }))
+{
+    @Html.AntiForgeryToken()
 
-<div class="container">
-    @Html.EditorFor(model => Model, EditorTemplatesPaths.InputArticleViewModel)
-</div>
+    @Html.EditorFor(model => Model, EditorTemplatesPaths.InputArticleViewModelCreate)
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

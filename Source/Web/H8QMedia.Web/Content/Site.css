@@ -4,7 +4,7 @@
 }
 
 body {
-    padding-top: 50px;
+    padding-top: 80px;
     /*padding-bottom: 20px;*/
     margin-bottom: 80px;
 }
@@ -37,12 +37,12 @@ body {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
+/* Set width on the form input elements since they're 100% wide by default 
 input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
 .left-margin {
     margin-left: 15px;
@@ -74,4 +74,19 @@ textarea {
 
 .fa-in-dropdown {
     margin-top: 6px;
+}
+
+.wrap-words {
+    overflow: hidden !important;
+    -moz-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+.article-preview-body {
+    height: 150px;
+}
+
+.article-preview-image {
+    max-height: 80px;
+    border-top: 1px solid #EEEEEE;
 }

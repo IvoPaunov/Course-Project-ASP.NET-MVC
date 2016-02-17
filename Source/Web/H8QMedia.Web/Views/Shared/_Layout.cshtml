@@ -43,7 +43,8 @@
         <p>&copy; @DateTime.Now.Year - H8Я Media powered by Ivo Paounov</p>
     </footer>
 
-
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryajax")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

@@ -6,6 +6,10 @@
 
     public class Article : InteractiveEntity
     {
+        public int? CategoryId { get; set; }
+
+        public Category Category { get; set; }
+
         public string AuthorId { get; set; }
 
         public ApplicationUser Author { get; set; }

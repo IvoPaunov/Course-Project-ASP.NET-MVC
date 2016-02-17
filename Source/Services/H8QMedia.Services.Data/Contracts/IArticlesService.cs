@@ -9,12 +9,16 @@ namespace H8QMedia.Services.Data.Contracts
 
         IQueryable<Article> GetAll();
 
+        IQueryable<Article> GetByUserId(string userId);
+
         int Create(string title, string description, string authorId);
 
         int Create(Article article);
 
         void Update(int id, string title, string description);
 
-        void Destroy(int id);
+        void Update(int id, Article article);
+
+        void Destroy(int id, string userId);
     }
 }

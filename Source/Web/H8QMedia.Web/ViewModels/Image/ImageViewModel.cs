@@ -7,7 +7,7 @@
     public class ImageViewModel : IMapFrom<Image>
     {
         [HiddenInput(DisplayValue = false)]
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
         public string OriginalFileName { get; set; }
 

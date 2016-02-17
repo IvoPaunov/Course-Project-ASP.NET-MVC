@@ -39,9 +39,11 @@
 
         protected override IEnumerable GetData()
         {
-            return this.articles
+            var arts = this.articles
              .GetAll()
              .To<ArticleViewModel>();
+
+            return arts;
         }
 
         protected override T GetById<T>(object id)

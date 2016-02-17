@@ -2,5 +2,6 @@
 {
     public interface IImagesService
     {
+        void Delete(int id);
     }
 }

@@ -5,6 +5,7 @@
     using H8QMedia.Data.Common.Repositories;
     using H8QMedia.Data.Models;
     using H8QMedia.Services.Data.Contracts;
+    using H8QMedia.Common.Extensions;
 
     public class ArticlesService : IArticlesService
     {
@@ -23,7 +24,17 @@
 
         public IQueryable<Article> GetAll()
         {
-            return this.articles.All().OrderByDescending(x => x.CreatedOn);
+            var result = this.articles.All()
+                .OrderByDescending(x => x.CreatedOn);
+
+            return result.AsQueryable();
+        }
+
+        public IQueryable<Article> GetByUserId(string userId)
+        {
+            return this.articles.All()
+                .Where(x => x.AuthorId == userId)
+                .OrderByDescending(x => x.CreatedOn);
         }
 
         public int Create(string title, string description, string authorId)
@@ -61,11 +72,22 @@
             this.articles.Save();
         }
 
-        public void Destroy(int id)
+        public void Update(int id, Article article)
+        {
+            var entityToUpdate = this.articles.GetById(id);
+
+            entityToUpdate.Title = article.Title;
+            entityToUpdate.Description = article.Description;
+            entityToUpdate.Images = article.Images;
+
+            this.articles.Save();
+        }
+
+        public void Destroy(int id, string userId)
         {
             var entityToDelete = this.articles.GetById(id);
 
-            if (entityToDelete != null)
+            if (entityToDelete != null && entityToDelete.AuthorId == userId)
             {
                 this.articles.Delete(entityToDelete);
                 this.articles.Save();

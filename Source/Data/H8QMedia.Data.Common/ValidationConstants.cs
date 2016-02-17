@@ -30,7 +30,7 @@
         // InteractiveEntity
         public const int MinInteractiveEntityTitleLength = 2;
         public const int MaxInteractiveEntityTitleLength = 256;
-        public const int MaxInteractiveEntityDescriptionLength = 2048;
+        public const int MaxInteractiveEntityDescriptionLength = 25600;
 
         // Course Objective
         public const int MinCourseObjectiveNameLength = 2;

@@ -1,12 +1,65 @@
 @model H8QMedia.Web.ViewModels.Article.ArticleViewModel
 
 <div class="panel panel-default">
-    <div class="panel-heading">@Model.Title</div>
-    <div class="panel-body">
-        @Model.Description
+    <div class="panel-heading clearfix">
+
+        <div class="row">
+            <div class="col-md-8">
+                <h5 class="wrap-words ">
+                    <a href="/Art/Details/@Model.Id">
+                        <strong class="wrap-words"> @Model.Title </strong>
+                    </a>
+                </h5>
+            </div>
+            <div class="col-md-4 text-right">
+                @if (Request.IsAuthenticated && User.Identity.GetUserId() == Model.AuthorId)
+                {
+                    <div class="col-md-8">
+                        <a href="/Users/Art/Edit/@Model.Id" class="btn btn-md btn-primary">Edit</a>
+                    </div>
+                    <div class="col-md-4">
+                        @using (Html.BeginForm("Destroy", "Art", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
+                        {
+                        @Html.AntiForgeryToken()
+                        <input type="submit" value="X" class="btn btn-danger" />
+                        }
+                    </div>
+                    
+                }
+
+            </div>
+        </div>
+
+
+
+
     </div>
-    <div class="panel-footer text-left">
+
+    <div class="panel-body wrap-words article-preview-body">
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Raw(Model.SanitizedDescription)
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-body wrap-words article-preview-body article-preview-image">
+        <div class="row">
+            <div class="com-md-12 ">
+                @foreach (var img in Model.Images)
+                {
+                    <div class="col-md-2">
+                        @Html.DisplayFor(x => img, DisplayTemplatesPaths.ImageViewModel)
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-footer text-left clearfix">
         <span>@Model.AuthorName</span>
+        <span class="pull-right">
+            @Html.DisplayFor(model => Model.CreatedOn)
+        </span>
     </div>
 </div>
-

@@ -1,0 +1,40 @@
+@model H8QMedia.Web.ViewModels.Article.ArticleViewModel
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="page-heading clearfix">
+            <span>@Model.Title</span>
+            <button Text="Go back"
+                    OnClick="JavaScript:window.history.back(1); return false;"
+                    class="btn btn-md btn-default pull-right"> &lt; &nbsp; Back </button>
+        </h2>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <blockquote>
+                  @Html.Raw(Model.SanitizedDescription)
+                </blockquote>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="com-md-12">
+                @foreach (var img in Model.Images)
+                {
+                    <div class="col-md-3">
+                        @Html.DisplayFor(x => img, DisplayTemplatesPaths.ImageViewModel)
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer text-left clearfix">
+        <span>@Model.AuthorName</span>
+        <span class="pull-right">
+            @Html.DisplayFor(model => Model.CreatedOn)
+        </span>
+    </div>
+</div>
+

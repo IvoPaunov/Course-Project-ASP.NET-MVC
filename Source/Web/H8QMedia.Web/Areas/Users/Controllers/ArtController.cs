@@ -1,11 +1,13 @@
 ﻿namespace H8QMedia.Web.Areas.Users.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Web.Mvc;
 
     using H8QMedia.Common;
+    using H8QMedia.Common.Extensions;
     using H8QMedia.Data.Models;
     using H8QMedia.Services.Data.Contracts;
     using H8QMedia.Web.Controllers;
@@ -14,10 +16,12 @@
     using H8QMedia.Web.Infrastructure.UploadHelpers;
     using H8QMedia.Web.ViewModels.Art;
     using H8QMedia.Web.ViewModels.Article;
+   
 
     [Authorize(Roles = ApplicationRoles.Artist)]
     public class ArtController : BaseController
     {
+        private const int ItemsPerPage = 6;
         private readonly IArticlesService articles;
 
         public ArtController(IArticlesService articles)
@@ -26,14 +30,25 @@
         }
 
         // GET: Public/Art
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Index(int id = 1)
         {
-            var arts = this.articles.GetAll()
+            var page = id;
+            var allItemsCount = this.articles.GetAll().Count();
+            var totalPages = (int)Math.Ceiling(allItemsCount / (decimal) ItemsPerPage);
+
+            var arts = this.articles
+                .GetByUserId(this.UserProfile.Id)
+                .OrderByDescending(x => x.CreatedOn)
+                .Skip((page - 1) * ItemsPerPage)
+                .Take(ItemsPerPage)
                 .To<ArticleViewModel>()
                 .ToList();
 
             var model = new ArtIndexViewModel()
             {
+                CurrentPage = page,
+                TotalPages = totalPages,
                 ArtArticles = arts
             };
 
@@ -48,7 +63,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(InputArticleViewModel model)
+        public ActionResult Create(ArticleInputModel model)
         {
             if (model != null && ModelState.IsValid)
             {
@@ -68,10 +83,6 @@
                         {
                             images.Add(imageUploader.UploadImage(file, folderPath, currentUserId));
                         }
-                        else
-                        {
-                            return this.View(model);
-                        }
                     }
                 }
 
@@ -84,6 +95,60 @@
             }
 
             return this.View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var art = this.articles.GetById(id)
+            .To<ArticleInputModel>()
+            .FirstOrDefault();
+
+            return this.View(art);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(ArticleInputModel model)
+        {
+            if (model != null && ModelState.IsValid)
+            {
+                var currentUserId = this.UserProfile.Id;
+                var updatedArticle = this.Mapper.Map<Article>(model);
+                var imageUploader = new ImageUplouder();
+                var images = new HashSet<Image>();
+                string folderPath = Server.MapPath(WebConstants.ImagesMainPathMap + currentUserId);
+
+                if (model.Files != null && model.Files.Count() > 0)
+                {
+                    foreach (var file in model.Files)
+                    {
+                        if (file != null
+                            && (file.ContentType == WebConstants.ContentTypeJpg || file.ContentType == WebConstants.ContentTypePng)
+                            && file.ContentLength < WebConstants.MaxImageFileSize)
+                        {
+                            images.Add(imageUploader.UploadImage(file, folderPath, currentUserId));
+                        }
+                    }
+                }
+
+                images.ForEach(x => updatedArticle.Images.Add(x));
+
+                this.articles.Update(model.Id, updatedArticle);
+
+                return this.RedirectToAction("Details", "Art", new { area = "", id = model.Id });
+            }
+
+            return this.View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Destroy(int id)
+        {
+            this.articles.Destroy(id, this.UserProfile.Id);
+
+            return this.RedirectToAction("Index", "Art", new { area = "Users", id = 1 });
         }
     }
 }
