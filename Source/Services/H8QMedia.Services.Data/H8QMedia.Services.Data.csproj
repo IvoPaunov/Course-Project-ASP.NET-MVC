@@ -68,7 +68,6 @@
     <Compile Include="CoursesService.cs" />
     <Compile Include="Contracts\ICategoriesService.cs" />
     <Compile Include="Contracts\ICitiesService.cs" />
-    <Compile Include="Contracts\ICommentsService.cs" />
     <Compile Include="Contracts\ICourseObjectivesService.cs" />
     <Compile Include="Contracts\ICoursesService.cs" />
     <Compile Include="Contracts\IImagesService.cs" />
@@ -76,6 +75,7 @@
     <Compile Include="Contracts\ILikesService.cs" />
     <Compile Include="Contracts\IAddressesService.cs" />
     <Compile Include="Contracts\IArticlesService.cs" />
+    <Compile Include="ICommentsService.cs" />
     <Compile Include="ImagesService.cs" />
     <Compile Include="Contracts\IMessagesService.cs" />
     <Compile Include="Contracts\IPurchasesService.cs" />

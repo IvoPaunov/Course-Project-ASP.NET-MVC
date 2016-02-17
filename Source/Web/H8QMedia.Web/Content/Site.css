@@ -90,3 +90,7 @@ textarea {
     max-height: 80px;
     border-top: 1px solid #EEEEEE;
 }
+
+hr {
+    margin: 0;
+}

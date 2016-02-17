@@ -15,7 +15,6 @@
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-        
         public IDbSet<Category> Categories { get; set; }
 
         public IDbSet<Comment> Comments { get; set; }
@@ -37,6 +36,8 @@
         public IDbSet<Lesson> Lessons { get; set; }
 
         public IDbSet<Like> Likes { get; set; }
+
+        public IDbSet<Message> Messages { get; set; }
 
         public IDbSet<Purchase> Purchases { get; set; }
 

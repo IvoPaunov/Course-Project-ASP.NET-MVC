@@ -1,5 +1,6 @@
 ﻿namespace H8QMedia.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
@@ -175,7 +176,8 @@
                     UserName = model.UserName,
                     Email = model.Email,
                     FirstName = model.FirstName,
-                    LastName = model.LastName
+                    LastName = model.LastName,
+                    CreatedOn = DateTime.Now
                 };
 
                 var result = await this.UserManager.CreateAsync(user, model.Password);

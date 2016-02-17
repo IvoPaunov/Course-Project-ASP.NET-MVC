@@ -1,0 +1,34 @@
+﻿@model IEnumerable<H8QMedia.Web.Areas.Users.ViewModels.Message.MessageViewModel>
+
+@{
+    ViewBag.Title = "_InboxMessagesPartial";
+}
+@if (Model.Count() > 0)
+{
+    foreach (var message in Model)
+    {
+        <div class="list-group-item">
+            <div class="alert alert-dismissible alert-info">
+                @if (message.IsSeen == true)
+                {
+                    <span class="pull-right label label-default">Seen</span>
+                }
+                else
+                {
+                    <span class="pull-right label label-warning">Not Seen</span>
+
+                }
+                <p>@message.Content</p>
+                <p class="text-muted">
+                    <span class="glyphicon glyphicon-user"></span> @message.RecipientName
+                </p>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="list-group-item">
+        <h3 class="text-info">No messages</h3>
+    </div>
+}

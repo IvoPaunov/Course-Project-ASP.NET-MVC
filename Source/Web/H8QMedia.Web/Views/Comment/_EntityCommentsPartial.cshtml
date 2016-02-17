@@ -1,0 +1,14 @@
+﻿@model IEnumerable<H8QMedia.Web.ViewModels.Comment.CommentViewModel>
+<div>
+    <div class="col-md-12">
+        <ul class="list-group" id="comments">
+            @foreach (var com in Model)
+            {
+                @Html.Partial("_SingleCommentPartial", com)
+            }
+        </ul>
+    </div>
+</div>
+
+
+

@@ -218,11 +218,17 @@
     <Compile Include="Areas\Admin\Controllers\ShopController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Users\Controllers\ArtController.cs" />
+    <Compile Include="Areas\Users\Controllers\CommentController.cs" />
     <Compile Include="Areas\Users\Controllers\DesignController.cs" />
     <Compile Include="Areas\Users\Controllers\ImageController.cs" />
+    <Compile Include="Areas\Users\Controllers\MessageController.cs" />
+    <Compile Include="Areas\Users\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Users\Controllers\SchoolController.cs" />
     <Compile Include="Areas\Users\Controllers\ShopController.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
+    <Compile Include="Areas\Users\ViewModels\Comment\InputCommentViewModelCreate.cs" />
+    <Compile Include="Areas\Users\ViewModels\Message\MessageInputModelCreate.cs" />
+    <Compile Include="Areas\Users\ViewModels\Message\MessageViewModel.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArtController.cs" />
@@ -473,6 +479,14 @@
     <Content Include="Areas\Users\Views\Art\Create.cshtml" />
     <Content Include="Areas\Users\Views\Art\Edit.cshtml" />
     <Content Include="Areas\Users\Views\Art\_ArtPaginationPartial.cshtml" />
+    <Content Include="Areas\Users\Views\Comment\_CreateCommentPartial.cshtml" />
+    <Content Include="Areas\Users\Views\Message\Send.cshtml" />
+    <Content Include="Areas\Users\Views\Profile\_UserProfilePartial.cshtml" />
+    <Content Include="Areas\Users\Views\Profile\_InboxMessagesPartial.cshtml" />
+    <Content Include="Areas\Users\Views\Profile\_OutboxMessagesPartial.cshtml" />
+    <Content Include="Areas\Users\Views\Profile\PublicProfile.cshtml" />
+    <Content Include="Areas\Users\Views\Profile\_PersonalProfilePartial.cshtml" />
+    <Content Include="Areas\Users\Views\Profile\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -550,6 +564,8 @@
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Image\InputImageViewModellEdit.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Article\InputArticleViewModelEdit.cshtml" />
+    <Content Include="Views\Comment\_SingleCommentPartial.cshtml" />
+    <Content Include="Views\Comment\_EntityCommentsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

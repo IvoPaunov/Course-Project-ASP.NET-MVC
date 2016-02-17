@@ -1,0 +1,15 @@
+﻿@model H8QMedia.Web.ViewModels.User.UserViewModel
+<div class="thumbnail">
+    <h4 class="text-center">Personal information:</h4>
+    <ul class="list-group">
+        <li class="list-group-item text-center"><span class="list-group-item-text">@Html.DisplayFor(model => model.UserName)</span></li>
+        <li class="list-group-item"><span class="badge">@Html.DisplayFor(model => model.ArtsAdded)</span>@Html.DisplayNameFor(model => model.ArtsAdded)</li>
+        <li class="list-group-item"><span class="badge">@Html.DisplayFor(model => model.DesignsAdded)</span>@Html.DisplayNameFor(model => model.DesignsAdded)</li>
+        <li class="list-group-item"><span class="badge">@Html.DisplayFor(model => model.SellingItemsAdded)</span>@Html.DisplayNameFor(model => model.SellingItemsAdded)</li>
+        <li class="list-group-item"><span class="badge">@Html.DisplayFor(model => model.CoursesAsTrainer)</span>@Html.DisplayNameFor(model => model.CoursesAsTrainer)</li>
+        <li class="list-group-item"><span class="badge">@Html.DisplayFor(model => model.CoursesAsStudent)</span>@Html.DisplayNameFor(model => model.CoursesAsStudent)</li>
+        <li class="list-group-item"><span class="badge">@Html.DisplayFor(model => model.PurchasesMade)</span>@Html.DisplayNameFor(model => model.PurchasesMade)</li>
+        <li class="list-group-item"><span class="badge">@Html.DisplayFor(model => model.CommentsMade)</span>@Html.DisplayNameFor(model => model.CommentsMade)</li>
+        <li class="list-group-item"><span class="badge">@Html.DisplayFor(model => model.LikesGiven)</span>@Html.DisplayNameFor(model => model.LikesGiven)</li>
+    </ul>
+</div>

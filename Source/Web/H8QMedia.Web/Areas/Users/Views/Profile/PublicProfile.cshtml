@@ -1,0 +1,30 @@
+﻿@using H8QMedia.Web.Areas.Users.ViewModels.Message
+@model H8QMedia.Web.ViewModels.User.UserViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">@Model.UserName</div>
+                <div class="panel-body">
+                    Member since: @Model.CreatedOn
+                </div>
+
+                @if (Model.UserName != User.Identity.Name)
+                {
+                    <div class="panel-footer">
+                        @Html.ActionLink("Send Message", "Send", "Message", new MessageInputModelCreate(Model.Id, Model.UserName), new { @class = "btn btn-success text-center full-width" })
+
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryajax")
+}

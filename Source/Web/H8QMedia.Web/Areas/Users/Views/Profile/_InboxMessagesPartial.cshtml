@@ -1,0 +1,36 @@
+﻿@model IEnumerable<H8QMedia.Web.Areas.Users.ViewModels.Message.MessageViewModel>
+@{
+    ViewBag.Title = "_InboxMessagesPartial";
+}
+@using H8QMedia.Web.Areas.Users.ViewModels.Message
+@if (Model.Count() > 0)
+{
+    foreach (var message in Model)
+    {
+        <div class="list-group-item">
+            <div class="alert alert-dismissible alert-info">
+                <span>
+                    @Html.ActionLink("Send Message", "Send", "Message", new MessageInputModelCreate(message.RecipientId, message.SenderName), new { @class = "pull-right label label-warning" })
+                </span>
+                <span>
+                    @Ajax.ActionLink("Mark As Read", "Update", "Profile", new { id = message.Id }, new AjaxOptions
+               {
+                   HttpMethod = "GET",
+                   InsertionMode = InsertionMode.Replace,
+                   UpdateTargetId = "inbox"
+               }, new { @class = "pull-right label label-info" })
+                </span>
+                <p>@message.Content</p>
+                <p class="text-muted">
+                    <span class="glyphicon glyphicon-user"></span> @message.SenderName
+                </p>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="list-group-item">
+        <h3 class="text-info">No messages</h3>
+    </div>
+}
