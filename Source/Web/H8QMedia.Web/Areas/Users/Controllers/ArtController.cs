@@ -16,7 +16,7 @@
     using H8QMedia.Web.Infrastructure.UploadHelpers;
     using H8QMedia.Web.ViewModels.Art;
     using H8QMedia.Web.ViewModels.Article;
-   
+    using H8QMedia.Web.ViewModels.Common;
 
     [Authorize(Roles = ApplicationRoles.Artist)]
     public class ArtController : BaseController
@@ -34,21 +34,30 @@
         public ActionResult Index(int id = 1)
         {
             var page = id;
-            var allItemsCount = this.articles.GetAll().Count();
-            var totalPages = (int)Math.Ceiling(allItemsCount / (decimal) ItemsPerPage);
+            var allItemsCount = this.articles
+                .GetAll()
+                .Count(x => x.Type == ArticleType.Art && x.AuthorId == this.UserProfile.Id);
+            var totalPages = (int)Math.Ceiling(allItemsCount / (decimal)ItemsPerPage);
 
             var arts = this.articles
                 .GetByUserId(this.UserProfile.Id)
+                .Where(x => x.Type == ArticleType.Art)
                 .OrderByDescending(x => x.CreatedOn)
                 .Skip((page - 1) * ItemsPerPage)
                 .Take(ItemsPerPage)
                 .To<ArticleViewModel>()
                 .ToList();
 
-            var model = new ArtIndexViewModel()
+            var paginationModel = new PaginationViewModel()
             {
                 CurrentPage = page,
                 TotalPages = totalPages,
+                Path = "/Users/Art/Index/"
+            };
+
+            var model = new ArtIndexViewModel()
+            {
+                PaginationModel = paginationModel,
                 ArtArticles = arts
             };
 
@@ -86,6 +95,7 @@
                     }
                 }
 
+                newArticle.Type = ArticleType.Art;
                 newArticle.AuthorId = currentUserId;
                 newArticle.Images = images;
 

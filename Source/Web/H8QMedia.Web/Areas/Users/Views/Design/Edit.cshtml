@@ -1,0 +1,16 @@
+﻿@model H8QMedia.Web.ViewModels.Article.ArticleInputModel
+@{
+    ViewBag.Title = "Design - Edit existing art";
+}
+
+@using (Html.BeginForm("Edit", "Design", FormMethod.Post, new { enctype = "multipart/form-data", @class = "full-width" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.EditorFor(model => Model, EditorTemplatesPaths.InputArticleViewModelEdit)
+
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

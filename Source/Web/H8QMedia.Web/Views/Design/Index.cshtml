@@ -1,8 +1,20 @@
-﻿
-@*@{
+﻿@using H8QMedia.Common
+@model H8QMedia.Web.ViewModels.Art.ArtIndexViewModel
+@{
     ViewBag.Title = "Design";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}*@
+}
 
-<h2>Design Public</h2>
+<h2 class="text-center">Last Designs</h2>
 
+<div class="container">
+    @if (Request.IsAuthenticated && User.IsInRole(ApplicationRoles.Admin))
+    {
+        <div calss="row text-center">
+            <div class="col-md-12">
+                <a href="/Users/Design/Create" class="btn btn-md btn-primary full-width">Create new Design</a>
+            </div>
+        </div>
+    }
+
+    @Html.Partial("../Article/_ArticlePagedPartial", Model)
+</div>

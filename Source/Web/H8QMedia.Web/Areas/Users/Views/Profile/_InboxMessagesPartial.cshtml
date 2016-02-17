@@ -2,28 +2,55 @@
 @{
     ViewBag.Title = "_InboxMessagesPartial";
 }
+@using Microsoft.AspNet.Identity
 @using H8QMedia.Web.Areas.Users.ViewModels.Message
+
 @if (Model.Count() > 0)
 {
     foreach (var message in Model)
     {
-        <div class="list-group-item">
-            <div class="alert alert-dismissible alert-info">
-                <span>
-                    @Html.ActionLink("Send Message", "Send", "Message", new MessageInputModelCreate(message.RecipientId, message.SenderName), new { @class = "pull-right label label-warning" })
-                </span>
-                <span>
-                    @Ajax.ActionLink("Mark As Read", "Update", "Profile", new { id = message.Id }, new AjaxOptions
-               {
-                   HttpMethod = "GET",
-                   InsertionMode = InsertionMode.Replace,
-                   UpdateTargetId = "inbox"
-               }, new { @class = "pull-right label label-info" })
-                </span>
-                <p>@message.Content</p>
-                <p class="text-muted">
-                    <span class="glyphicon glyphicon-user"></span> @message.SenderName
-                </p>
+        <div class="list-group-item col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <p class="">@message.Content</p>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row clearfix text-left">
+                <div class="col-md-12">
+                    <div class="col-md-7 text-left">
+                        <span>@message.CreatedOn</span>
+                        <strong><i class="fa fa-user"></i> @message.SenderName</strong>
+                    </div>
+                    <div class="col-md-5 text-right">
+                        <span>
+                            @Html.ActionLink(
+                                "Send Message",
+                                "Send",
+                                "Message",
+                                new MessageInputModelCreate(
+                                    User.Identity.GetUserId(),
+                                    message.SenderId, message.SenderName),
+                                new { @class = "btn btn-sm btn-info" })
+                        </span>
+                        <span>
+                            @(Ajax.ActionLink(
+                                  "Mark as seen",
+                                  "Update",
+                                  "Profile",
+                                  new { id = message.Id }, new AjaxOptions
+                                  {
+                                      HttpMethod = "GET",
+                                      InsertionMode = InsertionMode.Replace,
+                                      UpdateTargetId = "inbox"
+                                  },
+                                  new { @class = "btn btn-sm btn-default" }))
+                        </span>
+
+                    </div>
+                </div>
             </div>
         </div>
     }

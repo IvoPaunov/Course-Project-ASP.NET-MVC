@@ -18,12 +18,12 @@
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+      //  [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             this.images.Delete(id);
 
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
+            return Json(id);
         }
     }
 }

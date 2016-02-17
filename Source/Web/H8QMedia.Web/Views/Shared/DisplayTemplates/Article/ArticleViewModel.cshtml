@@ -1,7 +1,7 @@
 @model H8QMedia.Web.ViewModels.Article.ArticleViewModel
 
 <div class="panel panel-default">
-    <div class="panel-heading clearfix">
+    <div class="panel-heading">
 
         <div class="row">
             <div class="col-md-8">
@@ -20,19 +20,13 @@
                     <div class="col-md-4">
                         @using (Html.BeginForm("Destroy", "Art", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
                         {
-                        @Html.AntiForgeryToken()
-                        <input type="submit" value="X" class="btn btn-danger" />
+                            @Html.AntiForgeryToken()
+                            <input type="submit" value="X" class="btn btn-danger" />
                         }
                     </div>
-                    
                 }
-
             </div>
         </div>
-
-
-
-
     </div>
 
     <div class="panel-body wrap-words article-preview-body">
@@ -56,10 +50,29 @@
         </div>
     </div>
 
-    <div class="panel-footer text-left clearfix">
-        <span>@Model.AuthorName</span>
-        <span class="pull-right">
-            @Html.DisplayFor(model => Model.CreatedOn)
-        </span>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="com-md-12 ">
+                <div class="col-md-6">
+                    <span>
+                        @Html.DisplayFor(model => Model.CreatedOn)
+                    </span>
+                    <a href="/Users/Profile/UserName/@Model.AuthorName">
+                        <span>@Model.AuthorName</span>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <span>
+                        @Model.ArticleType
+                    </span>
+                </div>
+                <div class="col-md-3  text-right">
+                    <i class="fa fa-thumbs-o-up"></i>
+                    <span>
+                        @Model.LikesCount
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

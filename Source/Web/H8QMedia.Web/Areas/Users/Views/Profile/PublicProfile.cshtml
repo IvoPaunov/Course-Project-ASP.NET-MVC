@@ -1,4 +1,5 @@
 ﻿@using H8QMedia.Web.Areas.Users.ViewModels.Message
+@using Microsoft.AspNet.Identity
 @model H8QMedia.Web.ViewModels.User.UserViewModel
 @{
     ViewBag.Title = "Index";
@@ -16,7 +17,7 @@
                 @if (Model.UserName != User.Identity.Name)
                 {
                     <div class="panel-footer">
-                        @Html.ActionLink("Send Message", "Send", "Message", new MessageInputModelCreate(Model.Id, Model.UserName), new { @class = "btn btn-success text-center full-width" })
+                        @Html.ActionLink("Send Message", "Send", "Message", new MessageInputModelCreate(User.Identity.GetUserId(), Model.Id, Model.UserName), new { @class = "btn btn-success text-center full-width" })
 
                     </div>
                 }

@@ -1,57 +1,22 @@
-﻿
+﻿@using H8QMedia.Common
+@model H8QMedia.Web.ViewModels.Art.ArtIndexViewModel
 @{
-    const string ControllerName = "Art";
-    ViewBag.Title = ControllerName;
+    ViewBag.Title = "Art";
 }
 
-@model H8QMedia.Web.ViewModels.Art.ArtIndexViewModel
-<h2>Art Public</h2>
+<h2 class="text-center">Last Arts</h2>
+
 <div class="container">
-    
-    @foreach (var art in Model.ArtArticles)
+
+    @if (Request.IsAuthenticated && User.IsInRole(ApplicationRoles.Admin))
     {
-        <div class="col-md-6">
-            @Html.DisplayFor(model => art, DisplayTemplatesPaths.ArticleViewModel)
+        <div calss="row text-center">
+            <div class="col-md-12">
+                <a href="/Users/Art/Create" class="btn btn-md btn-primary full-width">Create new Art</a>
+            </div>
         </div>
     }
 
+    @Html.Partial("../Article/_ArticlePagedPartial", Model)
+
 </div>
-
-
-        @*@(Html.FullFeaturedGrid<ArticleViewModel>(ControllerName, m => m.Id, 5,
-
-                columns =>
-                {
-                    columns.Bound(p => p.Id);
-                    columns.Bound(p => p.Title).Width(120);
-                    columns.Bound(p => p.Author).Width(120);
-                    columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
-                }
-            ))*@
-
-
-        @*@(Html.Kendo().Grid<ArticleViewModel>()
-                .Name("grid")
-                .Columns(columns =>
-                {
-                    columns.Bound(p => p.Id);
-                    columns.Bound(p => p.Title).Width(120);
-                    columns.Bound(p => p.Author).Width(120);
-                    columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
-                })
-                .ToolBar(toolbar => toolbar.Create())
-                .Editable(editable => editable.Mode(GridEditMode.PopUp))
-                .Pageable()
-                .Sortable()
-                .Scrollable()
-                .HtmlAttributes(new { style = "height:550px;" })
-                .DataSource(dataSource => dataSource
-                    .Ajax()
-                    .PageSize(20)
-                    .Model(model => model.Id(p => p.Id))
-                    .Create(update => update.Action("Create", ControllerName))
-                    .Read(read => read.Action("Read", ControllerName))
-                    .Update(update => update.Action("Update", ControllerName))
-                    .Destroy(update => update.Action("Destroy", ControllerName))
-                )
-            )*@

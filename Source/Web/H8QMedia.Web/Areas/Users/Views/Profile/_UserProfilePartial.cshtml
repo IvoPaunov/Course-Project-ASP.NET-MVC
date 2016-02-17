@@ -1,7 +1,7 @@
 ﻿@model H8QMedia.Web.ViewModels.User.UserViewModel
-<div class="thumbnail">
-    <h4 class="text-center">Personal information:</h4>
+<div class="col-md-12">
     <ul class="list-group">
+        <li class="list-group-item active text-center"><span class="list-group-item-text"> My Summary: </span></li>
         <li class="list-group-item text-center"><span class="list-group-item-text">@Html.DisplayFor(model => model.UserName)</span></li>
         <li class="list-group-item"><span class="badge">@Html.DisplayFor(model => model.ArtsAdded)</span>@Html.DisplayNameFor(model => model.ArtsAdded)</li>
         <li class="list-group-item"><span class="badge">@Html.DisplayFor(model => model.DesignsAdded)</span>@Html.DisplayNameFor(model => model.DesignsAdded)</li>

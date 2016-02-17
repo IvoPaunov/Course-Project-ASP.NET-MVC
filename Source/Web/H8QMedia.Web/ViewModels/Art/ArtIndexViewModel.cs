@@ -2,12 +2,11 @@
 {
     using System.Collections.Generic;
     using H8QMedia.Web.ViewModels.Article;
+    using H8QMedia.Web.ViewModels.Common;
 
     public class ArtIndexViewModel
     {
-        public int CurrentPage { get; set; }
-
-        public int TotalPages { get; set; }
+        public PaginationViewModel PaginationModel { get; set; }
 
         public IEnumerable<ArticleViewModel> ArtArticles { get; set; }
     }

@@ -3,25 +3,37 @@
 @{
     ViewBag.Title = "_InboxMessagesPartial";
 }
+
 @if (Model.Count() > 0)
 {
     foreach (var message in Model)
     {
-        <div class="list-group-item">
-            <div class="alert alert-dismissible alert-info">
-                @if (message.IsSeen == true)
-                {
-                    <span class="pull-right label label-default">Seen</span>
-                }
-                else
-                {
-                    <span class="pull-right label label-warning">Not Seen</span>
-
-                }
-                <p>@message.Content</p>
-                <p class="text-muted">
-                    <span class="glyphicon glyphicon-user"></span> @message.RecipientName
-                </p>
+        <div class="list-group-item col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <p class="">@message.Content</p>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row clearfix text-left">
+                <div class="col-md-12">
+                    <div class="col-md-7 text-left">
+                        <span>@message.CreatedOn</span>
+                        <strong><i class="fa fa-user"></i> @message.RecipientName</strong>
+                    </div>
+                    <div class="col-md-5 text-right">
+                        @if (message.IsSeen == true)
+                        {
+                            <span class="pull-right label label-default">Seen</span>
+                        }
+                        else
+                        {
+                            <span class="pull-right label label-warning">Not Seen</span>
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     }

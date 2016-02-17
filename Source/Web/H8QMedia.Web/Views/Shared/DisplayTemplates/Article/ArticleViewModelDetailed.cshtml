@@ -2,12 +2,35 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2 class="page-heading clearfix">
-            <span>@Model.Title</span>
-            <button Text="Go back"
-                    OnClick="JavaScript:window.history.back(1); return false;"
-                    class="btn btn-md btn-default pull-right"> &lt; &nbsp; Back </button>
-        </h2>
+        <div class="row">
+            <div class="col-md-9">
+                <h4 class="wrap-words ">
+                        <strong class="wrap-words"> @Model.Title </strong>
+                </h4>
+            </div>
+            <div class="col-md-3 text-right">
+                <div class="col-md-4">
+                    <button Text="Go back"
+                            OnClick="JavaScript:window.history.back(1); return false;"
+                            class="btn btn-md btn-default">
+                        &lt; &nbsp;
+                    </button>
+                </div>
+                @if (Request.IsAuthenticated && User.Identity.GetUserId() == Model.AuthorId)
+                {
+                    <div class="col-md-4">
+                        <a href="/Users/Art/Edit/@Model.Id" class="btn btn-md btn-primary">Edit</a>
+                    </div>
+                    <div class="col-md-4">
+                        @using (Html.BeginForm("Destroy", "Art", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <input type="submit" value="X" class="btn btn-danger"/>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
     </div>
     <div class="panel-body">
         <div class="row">
@@ -30,11 +53,30 @@
             </div>
         </div>
     </div>
-    <div class="panel-footer text-left clearfix">
-        <span>@Model.AuthorName</span>
-        <span class="pull-right">
-            @Html.DisplayFor(model => Model.CreatedOn)
-        </span>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="com-md-12 ">
+                <div class="col-md-6">
+                    <span>
+                        @Html.DisplayFor(model => Model.CreatedOn)
+                    </span>
+                    <a href="/Users/Profile/UserName/@Model.AuthorName">
+                        <span>@Model.AuthorName</span>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <span>
+                        @Model.ArticleType
+                    </span>
+                </div>
+                <div class="col-md-3 text-right">
+                    <i class="fa fa-thumbs-o-up"></i>
+                    <span>
+                        @Model.LikesCount
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

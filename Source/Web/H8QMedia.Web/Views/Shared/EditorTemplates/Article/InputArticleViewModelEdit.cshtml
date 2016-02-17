@@ -38,24 +38,30 @@
                     </div>
 
                     <div class="row">
-                        @foreach (var image in Model.Images)
-                        {
-                            <div class="col-md-2">
-                                @Ajax.ActionLink("X", "Delete", "Image", new { àrea = "Users", id = image.Id },
-                                    new AjaxOptions
-                                    {
-                                        HttpMethod = "POST",
-                                        InsertionMode = InsertionMode.ReplaceWith,
-                                    }, new { @class = "btn btn-danger" }))
-                                    
-                                        @*@Html.AntiForgeryToken()*@
-                                
-                                        @Html.EditorFor(x => image, EditorTemplatesPaths.InputImageViewModellEdit)
-                                    
+                        <div class="col-md-10 col-md-offset-2">
+                            @foreach (var image in Model.Images)
+                            {
+                                <div class="col-md-2" id="img-@image.Id">
+                                    @Ajax.ActionLink("X", "Delete", "Image", new { àrea = "Users", id = image.Id },
+                                        new AjaxOptions
+                                        {
+                                            HttpMethod = "POST",
+                                            InsertionMode = InsertionMode.ReplaceWith,
+                                            OnComplete = "OnAjaxRequestSuccess",
+                                            Confirm = "Are you sure you want delete that image?"
 
-                            </div>
-                        }
+                                        }, new { @class = "btn btn-danger" })
+
+                                   @* @Html.AntiForgeryToken()*@
+
+                                    @Html.EditorFor(x => image, EditorTemplatesPaths.InputImageViewModellEdit)
+
+
+                                </div>
+                            }
+                        </div>
                     </div>
+                    <br />
                     <div class="form-group text-left">
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" value="Update" class="btn btn-warning full-width" />
@@ -68,3 +74,9 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    function OnAjaxRequestSuccess(data) {
+        $("#img-" + data.responseText).remove();
+        console.log("This is the OnSuccessCallback: " + data);
+    }
+</script>

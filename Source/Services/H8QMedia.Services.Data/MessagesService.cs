@@ -17,7 +17,7 @@
         public IQueryable<Message> AllToUserId(string id)
         {
             return this.messages.All()
-               .Where(m => m.RecipientId == id && m.IsSeen == false)
+               .Where(m => m.RecipientId == id)
                .OrderByDescending(m => m.CreatedOn);
         }
 

@@ -12,10 +12,11 @@
         {
         }
 
-        public MessageInputModelCreate(string toUserId, string toUserName)
+        public MessageInputModelCreate(string senderId, string recipientId, string recipientName)
         {
-            this.RecipientId = toUserId;
-            this.ToUserName = toUserName;
+            this.RecipientId = senderId;
+            this.RecipientId = recipientId;
+            this.RecipientName = recipientName;
         }
 
         [Required]
@@ -28,6 +29,6 @@
         public string RecipientId { get; set; }
 
         [NotMapped]
-        public string ToUserName { get; set; }
+        public string RecipientName { get; set; }
     }
 }
