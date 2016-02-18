@@ -5,7 +5,9 @@ using System.Web;
 
 namespace H8QMedia.Web.ViewModels.Course
 {
-    public class CourseInputModelEdit
+    public class CourseObjectiveInputModel
     {
+
+
     }
 }

@@ -9,11 +9,15 @@
 
         IQueryable<Course> GetAll();
 
-        IQueryable<Course> GetByUserId(string userId);
+        IQueryable<Course> GetByTrainerId(string userId);
+
+        IQueryable<Course> GetByStudentId(string userId);
 
         int Create(Course course);
 
         void Update(int id, Course course);
+
+        void AddTrainerToCourse(int courseId, string userId);
 
         void Destroy(int id, string userId);
     }

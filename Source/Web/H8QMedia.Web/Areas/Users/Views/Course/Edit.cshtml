@@ -1,0 +1,16 @@
+﻿@model H8QMedia.Web.ViewModels.Course.CourseInputModel
+@{
+    ViewBag.Title = "Edit existing course";
+}
+
+@using (Html.BeginForm("Edit", "Course", FormMethod.Post, new { enctype = "multipart/form-data", @class = "full-width" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.EditorFor(model => Model, EditorTemplatesPaths.CourseInputModelEdit)
+
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,4 +1,5 @@
-@model H8QMedia.Web.ViewModels.SellingItem.SellingItemViewModel
+@using H8QMedia.Common
+@model H8QMedia.Web.ViewModels.Course.CourseViewModel
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -16,13 +17,13 @@
                         &lt; &nbsp;
                     </button>
                 </div>
-                @if (Request.IsAuthenticated && User.Identity.GetUserId() == Model.SellerId)
+                @if (Request.IsAuthenticated && (User.IsInRole(ApplicationRoles.Admin) || User.IsInRole(ApplicationRoles.Trainer)))
                 {
                     <div class="col-md-4">
-                        <a href="/Users/SellingItems/Edit/@Model.Id" class="btn btn-md btn-primary">Edit</a>
+                        <a href="/Users/Course/Edit/@Model.Id" class="btn btn-md btn-primary">Edit</a>
                     </div>
                     <div class="col-md-4">
-                        @using (Html.BeginForm("Destroy", "SellingItems", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
+                        @using (Html.BeginForm("Destroy", "Course", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
                         {
                             @Html.AntiForgeryToken()
                             <input type="submit" value="X" class="btn btn-danger"/>
@@ -36,7 +37,7 @@
         <div class="row">
             <div class="col-md-12">
                 <blockquote>
-                  @Html.Raw(Model.SanitizedDescription)
+                  @Html.Raw(Model.Description)
                 </blockquote>
             </div>
         </div>
@@ -56,20 +57,23 @@
     <div class="panel-footer">
         <div class="row">
             <div class="com-md-12 ">
-                <div class="col-md-6">
+                <div class="col-md-8">
+                    <span>Starts: </span>
                     <span>
-                        @Html.DisplayFor(model => Model.CreatedOn)
+                        @Html.DisplayFor(model => Model.StartDate)
                     </span>
-                    <a href="/Users/Profile/UserName/@Model.SellerName">
-                        <span>@Model.SellerName</span>
-                    </a>
-                </div>
-                <div class="col-md-3">
+
+                    <span>Ends: </span>
                     <span>
-                        <i class="fa fa-money"></i>@Model.PriceBGN
+                        @Html.DisplayFor(model => Model.EndDate)
                     </span>
                 </div>
-                <div class="col-md-3 text-right">
+                <div class="col-md-2">
+                    <span>
+                        <i class="fa fa-users"></i>@Model.Students.Count()
+                    </span>
+                </div>
+                <div class="col-md-2  text-right">
                     <i class="fa fa-thumbs-o-up"></i>
                     <span>
                         @Model.LikesCount

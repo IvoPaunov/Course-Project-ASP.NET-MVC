@@ -1,8 +1,35 @@
-﻿
-@{
-    ViewBag.Title = "School";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@{
+    ViewBag.Title = "My school";
 }
-
-<h2>School Profile</h2>
-
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 well">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#courses" target="_self" data-toggle="tab"> Courses</a></li>
+                <li class=""><a href="#objectives" target="_self" data-toggle="tab"> Objectives</a></li>
+                <li class=""><a href="#lessons" target="_self" data-toggle="tab"> Lessons</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="courses" class="tab-pane active">
+                    <div class="list-group">
+                        @{Html.RenderAction("GetCoursesPartial");}
+                    </div>
+                </div>
+                <div id="objectives" class="tab-pane">
+                    <div class="list-group">
+                        @{Html.RenderAction("GetOutboxMessagesPartial");}
+                    </div>
+                </div>
+                <div id="lessons" class="tab-pane">
+                    <div class="list-group">
+                        @{Html.RenderAction("GetOutboxMessagesPartial");}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryajax")
+}

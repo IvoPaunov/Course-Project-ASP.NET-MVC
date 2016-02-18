@@ -3,7 +3,9 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using System.Web;
     using System.Web.Mvc;
     using AutoMapper;
     using H8QMedia.Data.Common;
@@ -13,14 +15,12 @@
     using H8QMedia.Web.ViewModels.Image;
     using H8QMedia.Web.ViewModels.User;
 
-    public class CourseViewModel : IMapFrom<Course>, IHaveCustomMappings
+    public class CourseInputModel: IMapTo<Course>, IMapFrom<Course>, IHaveCustomMappings
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
         public DateTime CreatedOn { get; set; }
-
-        public DateTime? ModifiedOn { get; set; }
 
         [Required]
         [MinLength(
@@ -36,26 +36,21 @@
             ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Description { get; set; }
 
-        public virtual ICollection<CommentViewModel> Comments { get; set; }
-
-        public int LikesCount { get; set; }
-
         public virtual ICollection<ImageViewModel> Images { get; set; }
+
+        [NotMapped]
+        // [ValidateFile(ErrorMessage = "Please select a JPEG image smaller than 1MB")]
+        public IEnumerable<HttpPostedFileBase> Files { get; set; }
 
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
 
-        public ICollection<UserViewModel> Students { get; set; }
-
-        public ICollection<UserViewModel> Trainers { get; set; }
-
-        public ICollection<CourseObjective> Objectives { get; set; }
-
         public void CreateMappings(IMapperConfiguration configuration)
         {
-            configuration.CreateMap<Course, CourseViewModel>()
-               .ForMember(x => x.LikesCount, opt => opt.MapFrom(x => x.Likes.Any() ? x.Likes.Count() : 0));
+            configuration.CreateMap<Course, CourseInputModel>()
+                 .ForMember(x => x.Images, opt => opt
+                     .MapFrom(x => x.Images.Where(y => !y.IsDeleted).OrderByDescending(y => y.CreatedOn).ToList()));
         }
     }
 }

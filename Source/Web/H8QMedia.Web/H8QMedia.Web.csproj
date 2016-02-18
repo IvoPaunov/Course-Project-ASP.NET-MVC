@@ -219,6 +219,7 @@
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Users\Controllers\ArtController.cs" />
     <Compile Include="Areas\Users\Controllers\CommentController.cs" />
+    <Compile Include="Areas\Users\Controllers\CourseController.cs" />
     <Compile Include="Areas\Users\Controllers\DesignController.cs" />
     <Compile Include="Areas\Users\Controllers\ImageController.cs" />
     <Compile Include="Areas\Users\Controllers\MessageController.cs" />
@@ -277,18 +278,16 @@
     <Compile Include="ViewModels\Comment\CommentInputModel.cs" />
     <Compile Include="ViewModels\Comment\CommentViewModel.cs" />
     <Compile Include="ViewModels\Common\PaginationViewModel.cs" />
-    <Compile Include="ViewModels\Course\CourseInputModelCreate.cs" />
-    <Compile Include="ViewModels\Course\CourseInputModelEdit.cs" />
-    <Compile Include="ViewModels\Course\CourseObjectiveInputModelCreate.cs" />
-    <Compile Include="ViewModels\Course\CourseObjectiveInputModelEdit.cs" />
+    <Compile Include="ViewModels\Course\CourseInputModel.cs" />
+    <Compile Include="ViewModels\Course\CourseObjectiveInputModel.cs" />
     <Compile Include="ViewModels\Course\CourseObjectiveViewModel.cs" />
     <Compile Include="ViewModels\Course\CourseViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
     <Compile Include="ViewModels\Image\ImageViewModel.cs" />
-    <Compile Include="ViewModels\Lesson\LessonInputModelCreate.cs" />
-    <Compile Include="ViewModels\Lesson\LessonInputModelEdit.cs" />
+    <Compile Include="ViewModels\Lesson\LessonInputModel.cs" />
     <Compile Include="ViewModels\Lesson\LessonViewModel.cs" />
     <Compile Include="ViewModels\Like\LikeViewModel.cs" />
+    <Compile Include="ViewModels\School\SchoolIndexViewModel.cs" />
     <Compile Include="ViewModels\SellingItem\SellingItemInputModel.cs" />
     <Compile Include="ViewModels\SellingItem\SellingItemViewModel.cs" />
     <Compile Include="ViewModels\Shop\ShopIndexViewModel.cs" />
@@ -502,6 +501,11 @@
     <Content Include="Areas\Users\Views\SellingItems\Create.cshtml" />
     <Content Include="Areas\Users\Views\SellingItems\Edit.cshtml" />
     <Content Include="Areas\Users\Views\SellingItems\Index.cshtml" />
+    <Content Include="Areas\Users\Views\School\_CoursesPartial.cshtml" />
+    <Content Include="Areas\Users\Views\School\_OutboxMessagesPartial.cshtml" />
+    <Content Include="Areas\Users\Views\School\_UserProfilePartial.cshtml" />
+    <Content Include="Areas\Users\Views\Course\Create.cshtml" />
+    <Content Include="Areas\Users\Views\Course\Edit.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -591,6 +595,20 @@
     <Content Include="Views\Shared\EditorTemplates\SellingItem\SellingItemInputModelEdit.cshtml" />
     <Content Include="Views\Shop\_SellingItemsPagedPartial.cshtml" />
     <Content Include="Views\Shop\Details.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Course\CourseViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Course\CourseViewModelDetailed.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Course\CourseInputModelCreate.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Course\CourseInputModelEdit.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CourseObjective\CourseObjectiveViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CourseObjective\CourseObjectiveViewModelDetailed.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\CourseObjective\CourseObjectiveInputModelCreate.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\CourseObjective\CourseObjectiveInputModelEdit.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Lesson\LessonViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Lesson\LessonViewModelDetailed.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Lesson\LessonInputModelCreate.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Lesson\LessonInputModelEdit.cshtml" />
+    <Content Include="Views\School\CourseDetails.cshtml" />
+    <Content Include="Views\School\_CoursesPagedPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -621,14 +639,8 @@
     <Folder Include="ViewModels\Purchase\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Shared\DisplayTemplates\Category\" />
-    <Folder Include="Views\Shared\DisplayTemplates\Course Objective\" />
-    <Folder Include="Views\Shared\DisplayTemplates\Course\" />
-    <Folder Include="Views\Shared\DisplayTemplates\Lesson\" />
     <Folder Include="Views\Shared\DisplayTemplates\Like\" />
     <Folder Include="Views\Shared\EditorTemplates\Category\" />
-    <Folder Include="Views\Shared\EditorTemplates\CourseObjective\" />
-    <Folder Include="Views\Shared\EditorTemplates\Course\" />
-    <Folder Include="Views\Shared\EditorTemplates\Lesson\" />
     <Folder Include="Views\Shared\EditorTemplates\Like\" />
   </ItemGroup>
   <ItemGroup>

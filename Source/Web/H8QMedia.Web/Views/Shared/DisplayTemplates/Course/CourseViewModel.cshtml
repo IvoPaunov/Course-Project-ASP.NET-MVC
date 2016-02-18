@@ -1,0 +1,86 @@
+@using H8QMedia.Common
+@model H8QMedia.Web.ViewModels.Course.CourseViewModel
+
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5 class="wrap-words ">
+                        <a href="/Shop/Details/@Model.Id">
+                            <strong class="wrap-words"> @Model.Title </strong>
+                        </a>
+                    </h5>
+                </div>
+                <div class="col-md-4 text-right">
+                    @if (Request.IsAuthenticated && (User.IsInRole(ApplicationRoles.Admin) || User.IsInRole(ApplicationRoles.Trainer)))
+                    {
+                        if (Model.Trainers.Any(x => x.Id == User.Identity.GetUserId()))
+                        {
+                            <div class="col-md-8">
+                                <a href="/Users/Course/Edit/@Model.Id" class="btn btn-md btn-primary">Edit</a>
+                            </div>
+                            <div class="col-md-4">
+                                @using (Html.BeginForm("Destroy", "Course", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <input type="submit" value="X" class="btn btn-danger" />
+                                }
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body wrap-words article-preview-body">
+            <div class="row">
+                <div class="col-md-12">
+                    @Model.Description
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body wrap-words article-preview-body article-preview-image">
+            <div class="row">
+                <div class="com-md-12 ">
+                    @foreach (var img in Model.Images)
+                    {
+                        <div class="col-md-2">
+                            @Html.DisplayFor(x => img, DisplayTemplatesPaths.ImageViewModel)
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            <div class="row">
+                <div class="com-md-12 ">
+                    <div class="col-md-8">
+                        <span>Starts: </span>
+                        <span>
+                            @Html.DisplayFor(model => Model.StartDate)
+                        </span>
+                        
+                        <span>Ends: </span>
+                        <span>
+                            @Html.DisplayFor(model => Model.EndDate)
+                        </span>
+                    </div>
+                    <div class="col-md-2">
+                        <span>
+                           <i class="fa fa-users"></i>@Model.Students.Count()
+                        </span>
+                    </div>
+                    <div class="col-md-2  text-right">
+                        <i class="fa fa-thumbs-o-up"></i>
+                        <span>
+                            @Model.LikesCount
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

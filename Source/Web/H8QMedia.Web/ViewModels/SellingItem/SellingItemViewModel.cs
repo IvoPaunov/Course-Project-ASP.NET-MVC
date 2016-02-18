@@ -38,10 +38,6 @@
             }
         }
 
-        public string AuthorName { get; set; }
-
-        public string AuthorId { get; set; }
-
         public ICollection<CommentViewModel> Comments { get; set; }
 
         public int LikesCount { get; set; }
