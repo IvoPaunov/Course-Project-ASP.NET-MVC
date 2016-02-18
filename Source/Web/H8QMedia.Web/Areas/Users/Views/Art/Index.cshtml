@@ -1,4 +1,5 @@
-﻿@model H8QMedia.Web.ViewModels.Art.ArtIndexViewModel
+﻿@using H8QMedia.Common
+@model H8QMedia.Web.ViewModels.Art.ArtIndexViewModel
 @{
     ViewBag.Title = "Art";
 }
@@ -6,6 +7,15 @@
 <h2 class="text-center">My Arts</h2>
 
 <div class="container">
+    
+    @if (Request.IsAuthenticated && User.IsInRole(ApplicationRoles.Admin))
+    {
+        <div calss="row text-center">
+            <div class="col-md-12">
+                <a href="/Users/Art/Create" class="btn btn-md btn-primary full-width">Create new Art</a>
+            </div>
+        </div>
+    }
 
     @Html.Partial("../Article/_ArticlePagedPartial", Model)
 

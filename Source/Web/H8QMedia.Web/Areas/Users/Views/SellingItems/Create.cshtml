@@ -1,0 +1,15 @@
+﻿@model H8QMedia.Web.ViewModels.SellingItem.SellingItemInputModel
+@{
+    ViewBag.Title = "Add new item for sale";
+}
+
+@using (Html.BeginForm("Create", "SellingItems", FormMethod.Post, new { enctype = "multipart/form-data", @class = "full-width" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.EditorFor(model => Model, EditorTemplatesPaths.SellingItemInputModelCreate)
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

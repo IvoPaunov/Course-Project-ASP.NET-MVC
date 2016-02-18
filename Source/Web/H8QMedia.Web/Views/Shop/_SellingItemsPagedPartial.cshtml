@@ -1,0 +1,17 @@
+﻿@using H8QMedia.Common
+@model H8QMedia.Web.ViewModels.Shop.ShopIndexViewModel
+
+<hr />
+
+@Html.Partial("_PaginationPartial", Model.PaginationModel)
+
+<div class="row">
+    @foreach (var art in Model.ItemsForSale)
+    {
+        <div class="col-md-6">
+            @Html.DisplayFor(model => art, DisplayTemplatesPaths.SellingItemViewModel)
+        </div>
+    }
+</div>
+
+@Html.Partial("_PaginationPartial", Model.PaginationModel)

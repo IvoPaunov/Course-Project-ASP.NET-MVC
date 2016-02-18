@@ -14,6 +14,10 @@
 
         public virtual Country Country { get; set; }
 
+        public string UserId { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
+
         [Required]
         [MinLength(ValidationConstants.MinAddressLineLength, ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
         [MaxLength(ValidationConstants.MaxAddressLineLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]

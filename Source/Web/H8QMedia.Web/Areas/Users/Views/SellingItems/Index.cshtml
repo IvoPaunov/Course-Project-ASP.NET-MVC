@@ -1,14 +1,14 @@
 ﻿@using H8QMedia.Common
 @model H8QMedia.Web.ViewModels.Shop.ShopIndexViewModel
 @{
-    ViewBag.Title = "Shop";
+    ViewBag.Title = "Items for sale";
 }
 
-<h2 class="text-center">Който разбира тук се спира!!!</h2>
+<h2 class="text-center">My Items for sale</h2>
 
 <div class="container">
-
-    @if (Request.IsAuthenticated && (User.IsInRole(ApplicationRoles.Admin) && User.IsInRole(ApplicationRoles.Seller)))
+    
+    @if (Request.IsAuthenticated && User.IsInRole(ApplicationRoles.Admin))
     {
         <div calss="row text-center">
             <div class="col-md-12">

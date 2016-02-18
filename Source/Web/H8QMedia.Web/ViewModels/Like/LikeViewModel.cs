@@ -8,7 +8,11 @@
     public class LikeViewModel : IMapFrom<Like>
     {
         [HiddenInput(DisplayValue = false)]
-        public int? Id { get; set; }
+        public int Id { get; set; }
+
+        public string FromUserId { get; set; }
+
+        public int EntityId { get; set; }
 
         public DateTime CreatedOn { get; set; }
 

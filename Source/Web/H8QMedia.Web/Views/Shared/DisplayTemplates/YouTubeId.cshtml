@@ -1,0 +1,6 @@
+@model string
+
+<div class="embed-responsive embed-responsive-16by9">
+    @Model = $"https://www.youtube-nocookie.com/embed/{Model}=0&amp;controls=0&amp;showinfo=0"
+    <iframe class="embed-responsive-item" src="@Model" frameborder="0" allowfullscreen></iframe>
+</div>

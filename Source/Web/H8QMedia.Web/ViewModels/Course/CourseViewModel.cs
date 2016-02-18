@@ -9,7 +9,9 @@
     using H8QMedia.Data.Common;
     using H8QMedia.Data.Models;
     using H8QMedia.Web.Infrastructure.Mapping;
+    using H8QMedia.Web.ViewModels.Comment;
     using H8QMedia.Web.ViewModels.Image;
+    using H8QMedia.Web.ViewModels.User;
 
     public class CourseViewModel : IMapFrom<Course>, IHaveCustomMappings
     {
@@ -34,7 +36,7 @@
             ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Description { get; set; }
 
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<CommentViewModel> Comments { get; set; }
 
         public int Likes { get; set; }
 
@@ -44,9 +46,9 @@
 
         public DateTime EndDate { get; set; }
 
-        public ICollection<ApplicationUser> Students { get; set; }
+        public ICollection<UserViewModel> Students { get; set; }
 
-        public ICollection<ApplicationUser> Trainers { get; set; }
+        public ICollection<UserViewModel> Trainers { get; set; }
 
         public ICollection<CourseObjective> Objectives { get; set; }
 

@@ -1,54 +1,58 @@
-@model H8QMedia.Web.ViewModels.Article.ArticleViewModel
+@model H8QMedia.Web.ViewModels.SellingItem.SellingItemViewModel
 
 <div class="panel panel-default">
     <div class="panel-heading">
         <div class="row">
-            <div class="col-md-8">
-                <h5 class="wrap-words ">
-                    <a href="/Art/Details/@Model.Id">
+            <div class="col-md-9">
+                <h4 class="wrap-words ">
                         <strong class="wrap-words"> @Model.Title </strong>
-                    </a>
-                </h5>
+                </h4>
             </div>
-            <div class="col-md-4 text-right">
+            <div class="col-md-3 text-right">
+                <div class="col-md-4">
+                    <button Text="Go back"
+                            OnClick="JavaScript:window.history.back(1); return false;"
+                            class="btn btn-md btn-default">
+                        &lt; &nbsp;
+                    </button>
+                </div>
                 @if (Request.IsAuthenticated && User.Identity.GetUserId() == Model.AuthorId)
                 {
-                    <div class="col-md-8">
-                        <a href="/Users/Art/Edit/@Model.Id" class="btn btn-md btn-primary">Edit</a>
+                    <div class="col-md-4">
+                        <a href="/Users/SellingItems/Edit/@Model.Id" class="btn btn-md btn-primary">Edit</a>
                     </div>
                     <div class="col-md-4">
-                        @using (Html.BeginForm("Destroy", "Art", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
+                        @using (Html.BeginForm("Destroy", "SellingItems", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
                         {
                             @Html.AntiForgeryToken()
-                            <input type="submit" value="X" class="btn btn-danger" />
+                            <input type="submit" value="X" class="btn btn-danger"/>
                         }
                     </div>
                 }
             </div>
         </div>
     </div>
-
-    <div class="panel-body wrap-words article-preview-body">
+    <div class="panel-body">
         <div class="row">
             <div class="col-md-12">
-                @Html.Raw(Model.SanitizedDescription)
+                <blockquote>
+                  @Html.Raw(Model.SanitizedDescription)
+                </blockquote>
             </div>
         </div>
-    </div>
-
-    <div class="panel-body wrap-words article-preview-body article-preview-image">
+        <hr />
         <div class="row">
-            <div class="com-md-12 ">
+            <div class="com-md-12">
                 @foreach (var img in Model.Images)
                 {
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         @Html.DisplayFor(x => img, DisplayTemplatesPaths.ImageViewModel)
+
                     </div>
                 }
             </div>
         </div>
     </div>
-
     <div class="panel-footer">
         <div class="row">
             <div class="com-md-12 ">
@@ -62,10 +66,10 @@
                 </div>
                 <div class="col-md-3">
                     <span>
-                        @Model.ArticleType
+                        @Model.PriceBGN
                     </span>
                 </div>
-                <div class="col-md-3  text-right">
+                <div class="col-md-3 text-right">
                     <i class="fa fa-thumbs-o-up"></i>
                     <span>
                         @Model.LikesCount
@@ -75,3 +79,4 @@
         </div>
     </div>
 </div>
+

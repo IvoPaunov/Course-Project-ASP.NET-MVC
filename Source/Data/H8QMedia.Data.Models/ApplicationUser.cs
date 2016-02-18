@@ -22,6 +22,7 @@
         private ICollection<Like> likes;
         private ICollection<SellingItem> sellingItems;
         private ICollection<Purchase> purchases;
+        private ICollection<Address> addresses;
 
         public ApplicationUser()
         {
@@ -32,6 +33,7 @@
             this.likes = new HashSet<Like>();
             this.sellingItems = new HashSet<SellingItem>();
             this.purchases = new HashSet<Purchase>();
+            this.addresses = new HashSet<Address>();
         }
 
         [MaxLength(ValidationConstants.MaxUserNameLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
@@ -66,6 +68,10 @@
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        public int? UserTypeCategoryId { get; set; }
+
+        public virtual UserTypeCategory UserTypeCategory { get; set; }
 
         public virtual ICollection<Article> Articles
         {
@@ -107,6 +113,12 @@
         {
             get { return this.purchases; }
             set { this.purchases = value; }
+        }
+
+        public virtual ICollection<Address> Addresses
+        {
+            get { return this.addresses; }
+            set { this.addresses = value; }
         }
     }
 }

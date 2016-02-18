@@ -1,11 +1,11 @@
-@model H8QMedia.Web.ViewModels.Article.ArticleViewModel
+@model H8QMedia.Web.ViewModels.SellingItem.SellingItemViewModel
 
 <div class="panel panel-default">
     <div class="panel-heading">
         <div class="row">
             <div class="col-md-8">
                 <h5 class="wrap-words ">
-                    <a href="/Art/Details/@Model.Id">
+                    <a href="/Shop/Details/@Model.Id">
                         <strong class="wrap-words"> @Model.Title </strong>
                     </a>
                 </h5>
@@ -14,10 +14,10 @@
                 @if (Request.IsAuthenticated && User.Identity.GetUserId() == Model.AuthorId)
                 {
                     <div class="col-md-8">
-                        <a href="/Users/Art/Edit/@Model.Id" class="btn btn-md btn-primary">Edit</a>
+                        <a href="/Users/SellingItems/Edit/@Model.Id" class="btn btn-md btn-primary">Edit</a>
                     </div>
                     <div class="col-md-4">
-                        @using (Html.BeginForm("Destroy", "Art", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
+                        @using (Html.BeginForm("Destroy", "SellingItems", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
                         {
                             @Html.AntiForgeryToken()
                             <input type="submit" value="X" class="btn btn-danger" />
@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-md-3">
                     <span>
-                        @Model.ArticleType
+                        @Model.PriceBGN
                     </span>
                 </div>
                 <div class="col-md-3  text-right">
