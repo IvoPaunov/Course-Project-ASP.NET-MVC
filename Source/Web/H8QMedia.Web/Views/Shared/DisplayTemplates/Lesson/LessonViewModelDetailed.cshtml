@@ -1,4 +1,4 @@
-@model H8QMedia.Web.ViewModels.SellingItem.SellingItemViewModel
+@model H8QMedia.Web.ViewModels.Lesson.LessonViewModel
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -16,13 +16,13 @@
                         &lt; &nbsp;
                     </button>
                 </div>
-                @if (Request.IsAuthenticated && User.Identity.GetUserId() == Model.SellerId)
+                @if (Request.IsAuthenticated && User.Identity.GetUserId() == Model.TrainerId)
                 {
                     <div class="col-md-4">
-                        <a href="/Users/SellingItems/Edit/@Model.Id" class="btn btn-md btn-primary">Edit</a>
+                        <a href="/Users/Lesson/Edit/@Model.Id" class="btn btn-md btn-primary">Edit</a>
                     </div>
                     <div class="col-md-4">
-                        @using (Html.BeginForm("Destroy", "SellingItems", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
+                        @using (Html.BeginForm("Destroy", "Lesson", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
                         {
                             @Html.AntiForgeryToken()
                             <input type="submit" value="X" class="btn btn-danger"/>
@@ -43,13 +43,13 @@
         <hr />
         <div class="row">
             <div class="com-md-12">
-                @foreach (var img in Model.Images)
+                @*@foreach (var img in Model.Images)
                 {
                     <div class="col-md-3">
                         @Html.DisplayFor(x => img, DisplayTemplatesPaths.ImageViewModel)
 
                     </div>
-                }
+                }*@
             </div>
         </div>
     </div>
@@ -60,19 +60,19 @@
                     <span>
                         @Html.DisplayFor(model => Model.CreatedOn)
                     </span>
-                    <a href="/Users/Profile/UserName/@Model.SellerName">
-                        <span>@Model.SellerName</span>
+                    <a href="/Users/Profile/UserName/@Model.TrainerName">
+                        <span>@Model.TrainerName</span>
                     </a>
                 </div>
                 <div class="col-md-3">
                     <span>
-                        <i class="fa fa-money"></i>@Model.PriceBGN
+                        <i class="fa fa-money"></i>
                     </span>
                 </div>
                 <div class="col-md-3 text-right">
                     <i class="fa fa-thumbs-o-up"></i>
                     <span>
-                        @Model.LikesCount
+                      
                     </span>
                 </div>
             </div>

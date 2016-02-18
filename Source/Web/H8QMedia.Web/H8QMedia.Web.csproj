@@ -506,10 +506,14 @@
     <Content Include="Areas\Users\Views\SellingItems\Edit.cshtml" />
     <Content Include="Areas\Users\Views\SellingItems\Index.cshtml" />
     <Content Include="Areas\Users\Views\School\_CoursesPartial.cshtml" />
-    <Content Include="Areas\Users\Views\School\_OutboxMessagesPartial.cshtml" />
-    <Content Include="Areas\Users\Views\School\_UserProfilePartial.cshtml" />
+    <Content Include="Areas\Users\Views\School\_CoursesObjectivesPartial.cshtml" />
+    <Content Include="Areas\Users\Views\School\_LessonsPartial.cshtml" />
     <Content Include="Areas\Users\Views\Course\Create.cshtml" />
     <Content Include="Areas\Users\Views\Course\Edit.cshtml" />
+    <Content Include="Areas\Users\Views\Lesson\Create.cshtml" />
+    <Content Include="Areas\Users\Views\Lesson\Edit.cshtml" />
+    <Content Include="Areas\Users\Views\CourseObjective\Create.cshtml" />
+    <Content Include="Areas\Users\Views\CourseObjective\Edit.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -613,6 +617,8 @@
     <Content Include="Views\Shared\EditorTemplates\Lesson\LessonInputModelEdit.cshtml" />
     <Content Include="Views\School\CourseDetails.cshtml" />
     <Content Include="Views\School\_CoursesPagedPartial.cshtml" />
+    <Content Include="Views\School\CourseObjectiveDetails.cshtml" />
+    <Content Include="Views\School\LessonDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

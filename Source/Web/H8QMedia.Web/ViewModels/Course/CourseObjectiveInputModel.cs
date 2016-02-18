@@ -20,7 +20,7 @@
         [Required]
         [MinLength(ValidationConstants.MinCourseObjectiveNameLength, ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
         [MaxLength(ValidationConstants.MaxCourseObjectiveNameLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
-        public string Name { get; set; }
+        public string Title { get; set; }
 
         public string CreatorId { get; set; }
 

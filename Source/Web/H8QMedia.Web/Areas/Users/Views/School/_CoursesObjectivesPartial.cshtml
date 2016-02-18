@@ -1,6 +1,6 @@
-﻿@model IEnumerable<H8QMedia.Web.ViewModels.Course.CourseViewModel>
+﻿@model IEnumerable<H8QMedia.Web.ViewModels.Course.CourseObjectiveViewModel>
 @{
-    ViewBag.Title = "_CoursesPartial";
+    ViewBag.Title = "_CoursesObjectivesPartial";
 }
 @using H8QMedia.Common
 @using Microsoft.AspNet.Identity
@@ -10,12 +10,12 @@
 {
     <div calss="row text-center">
         <div class="col-md-12">
-            <a href="/Users/Course/Create" class="btn btn-md btn-primary full-width">Add new Course</a>
+            <a href="/Users/CourseObjective/Create" class="btn btn-md btn-primary full-width">Add new Course Objective</a>
         </div>
     </div>
 
-    <br/>
-    <br/>
+    <br />
+    <br />
 }
 
 <div calss="row text-center">
@@ -26,7 +26,7 @@
             <div class="col-md-6">
                 @foreach (var course in Model)
                 {
-                    @Html.DisplayFor(model => course, DisplayTemplatesPaths.CourseViewModel)
+                    @Html.DisplayFor(model => course, DisplayTemplatesPaths.CourseObjectiveViewModel)
                 }
             </div>
 

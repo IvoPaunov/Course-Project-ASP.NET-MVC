@@ -8,16 +8,21 @@
     using H8QMedia.Web.Infrastructure.Mapping;
     using H8QMedia.Web.ViewModels.Common;
     using H8QMedia.Web.ViewModels.Course;
+    using H8QMedia.Web.ViewModels.Lesson;
     using H8QMedia.Web.ViewModels.School;
 
     public class SchoolController : BaseController
     {
         private const int ItemsPerPage = 6;
         private readonly ICoursesService courses;
+        private readonly ICourseObjectivesService objectives;
+        private readonly ILessonsService lessons;
 
-        public SchoolController(ICoursesService courses)
+        public SchoolController(ICoursesService courses, ICourseObjectivesService objectives, ILessonsService lessons)
         {
             this.courses = courses;
+            this.objectives = objectives;
+            this.lessons = lessons;
         }
 
         public ActionResult Index(int page = 1)
@@ -72,7 +77,12 @@
 
         public ActionResult CourseObjective(int id)
         {
-            return this.Json(id);
+            var objective = this.objectives
+               .GetById(id)
+               .To<CourseObjectiveViewModel>()
+               .FirstOrDefault();
+
+            return this.View("CourseObjectiveDetails", objective);
         }
 
         public ActionResult CourseObjectives(int page)
@@ -82,7 +92,12 @@
 
         public ActionResult Lesson(int id)
         {
-            return this.Json(id);
+            var lesson = this.lessons
+               .GetById(id)
+               .To<LessonViewModel>()
+               .FirstOrDefault();
+
+            return this.View("LessonDetails", lesson);
         }
 
         public ActionResult Lessons(int page)

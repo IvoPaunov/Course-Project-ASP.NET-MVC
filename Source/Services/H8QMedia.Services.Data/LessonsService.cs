@@ -37,16 +37,21 @@
 
         public IQueryable<Lesson> GetByCourseId(int courseId)
         {
-            return this.lessons.All()
-                          .Where(x => x.CourseObjective.CourseId == courseId)
-                          .OrderByDescending(x => x.CreatedOn);
+            //TODO:
+            return null;
+            //return this.lessons.All()
+            //              .Where(x => x.CourseObjective.CourseId == courseId)
+            //              .OrderByDescending(x => x.CreatedOn);
         }
 
         public IQueryable<Lesson> GetByCourseObjectiveId(int courseObjectiveId)
         {
-            return this.lessons.All()
-                          .Where(x => x.CourseObjectiveId == courseObjectiveId)
-                          .OrderByDescending(x => x.CreatedOn);
+            //TODO:
+            return null;
+
+            //return this.lessons.All()
+            //              .Where(x => x.CourseObjectiveId == courseObjectiveId)
+            //              .OrderByDescending(x => x.CreatedOn);
         }
 
         public int Create(Lesson lesson)
@@ -60,14 +65,21 @@
 
         public void Update(int id, Lesson lesson)
         {
-            throw new System.NotImplementedException();
+            var entityToUpdate = this.lessons.GetById(id);
+
+            entityToUpdate.Title = lesson.Title;
+            entityToUpdate.Description = lesson.Description;
+            entityToUpdate.YoutubeVideoId = lesson.YoutubeVideoId;
+
+            this.lessons.Save();
         }
 
         public void AddToCourseObjective(int id, int courseObjectiveId)
         {
             var lesson = this.lessons.GetById(id);
 
-            lesson.CourseObjectiveId = courseObjectiveId;
+            // TODO:
+            // lesson.CourseObjectiveId = courseObjectiveId;
 
             this.lessons.Save();
         }

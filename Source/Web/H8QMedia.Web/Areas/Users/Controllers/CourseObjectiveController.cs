@@ -45,7 +45,7 @@
 
                 var result = this.objectives.Create(newArticle);
 
-                return this.RedirectToAction("Course", "School", new { area = "", id = result });
+                return this.RedirectToAction("CourseObjective", "School", new { area = "", id = result });
             }
 
             return this.View(model);
@@ -54,8 +54,8 @@
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var art = this.courses.GetById(id)
-            .To<CourseInputModel>()
+            var art = this.objectives.GetById(id)
+            .To<CourseObjectiveInputModel>()
             .FirstOrDefault();
 
             return this.View(art);
@@ -63,34 +63,16 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(CourseInputModel model)
+        public ActionResult Edit(CourseObjectiveInputModel model)
         {
             if (model != null && ModelState.IsValid)
             {
                 var currentUserId = this.UserProfile.Id;
-                var updatedArticle = this.Mapper.Map<Course>(model);
-                var imageUploader = new ImageUplouder();
-                var images = new HashSet<Image>();
-                string folderPath = Server.MapPath(WebConstants.ImagesMainPathMap + currentUserId);
+                var updatedArticle = this.Mapper.Map<CourseObjective>(model);
 
-                if (model.Files != null && model.Files.Count() > 0)
-                {
-                    foreach (var file in model.Files)
-                    {
-                        if (file != null
-                            && (file.ContentType == WebConstants.ContentTypeJpg || file.ContentType == WebConstants.ContentTypePng)
-                            && file.ContentLength < WebConstants.MaxImageFileSize)
-                        {
-                            images.Add(imageUploader.UploadImage(file, folderPath, currentUserId));
-                        }
-                    }
-                }
+                this.objectives.Update(model.Id, updatedArticle);
 
-                images.ForEach(x => updatedArticle.Images.Add(x));
-
-                this.courses.Update(model.Id, updatedArticle);
-
-                return this.RedirectToAction("Course", "School", new { area = "", id = model.Id });
+                return this.RedirectToAction("CourseObjective", "School", new { area = "", id = model.Id });
             }
 
             return this.View(model);
@@ -100,7 +82,7 @@
         [ValidateAntiForgeryToken]
         public ActionResult Destroy(int id)
         {
-            this.courses.Destroy(id, this.UserProfile.Id);
+            this.objectives.Destroy(id, this.UserProfile.Id);
 
             return this.RedirectToAction("Index", "School", new { area = "Users", id = 1 });
         }

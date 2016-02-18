@@ -15,9 +15,5 @@
         public string TrainerId { get; set; }
 
         public virtual ApplicationUser Trainer { get; set; }
-
-        public int CourseObjectiveId{ get; set; }
-
-        public virtual CourseObjective CourseObjective { get; set; }
     }
 }

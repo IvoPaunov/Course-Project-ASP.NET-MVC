@@ -1,0 +1,15 @@
+﻿@model H8QMedia.Web.ViewModels.Course.CourseObjectiveInputModel
+@{
+    ViewBag.Title = "Add new course objective";
+}
+
+@using (Html.BeginForm("Create", "CourseObjective", FormMethod.Post, new { enctype = "multipart/form-data", @class = "full-width" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.EditorFor(model => Model, EditorTemplatesPaths.CourseObjectiveInputModelCreate)
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

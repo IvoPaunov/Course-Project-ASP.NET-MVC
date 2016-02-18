@@ -11,7 +11,7 @@ namespace H8QMedia.Web.ViewModels.Lesson
     using H8QMedia.Data.Models;
     using H8QMedia.Web.Infrastructure.Mapping;
 
-    public class LessonInputModel : IMapTo<CourseObjective>, IMapFrom<CourseObjective>
+    public class LessonInputModel : IMapTo<Lesson>, IMapFrom<Lesson>
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }

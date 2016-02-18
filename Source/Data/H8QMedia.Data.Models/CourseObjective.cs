@@ -18,7 +18,7 @@
         [Required]
         [MinLength(ValidationConstants.MinCourseObjectiveNameLength, ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
         [MaxLength(ValidationConstants.MaxCourseObjectiveNameLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
-        public string Name { get; set; }
+        public string Title { get; set; }
 
         [MaxLength(ValidationConstants.MaxCourseObjectiveDescriptionLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Description { get; set; }
@@ -26,10 +26,6 @@
         public string CreatorId { get; set; }
 
         public virtual ApplicationUser Creator { get; set; }
-
-        public int CourseId { get; set; }
-
-        public virtual Course Course { get; set; }
 
         public virtual ICollection<Lesson> Lessons
         {
