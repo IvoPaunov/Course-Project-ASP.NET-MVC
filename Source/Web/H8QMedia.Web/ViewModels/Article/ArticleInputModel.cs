@@ -27,21 +27,28 @@
         [AllowHtml]
         public string Description { get; set; }
 
+       // [HiddenInput(DisplayValue = false)]
         public ArticleType Type { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public string AuthorId { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public string AuthorName { get; set; }
 
         [NotMapped]
         // [ValidateFile(ErrorMessage = "Please select a JPEG image smaller than 1MB")]
         public IEnumerable<HttpPostedFileBase> Files { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public IEnumerable<ImageViewModel> Images { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Article, ArticleInputModel>()
                  .ForMember(x => x.Images, opt => opt
-                     .MapFrom(x => x.Images.Where(y => !y.IsDeleted).OrderByDescending(y => y.CreatedOn).ToList()));
+                     .MapFrom(x => x.Images.Where(y => !y.IsDeleted).OrderByDescending(y => y.CreatedOn).ToList()))
+                .ForMember(x => x.AuthorName, opt => opt.MapFrom(x => x.Author.UserName));
         }
     }
 }

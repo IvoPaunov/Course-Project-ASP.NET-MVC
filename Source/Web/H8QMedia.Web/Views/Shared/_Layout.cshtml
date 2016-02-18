@@ -9,6 +9,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryajax")
     @Scripts.Render("~/bundles/kendo")
 </head>
 <body>
@@ -33,6 +34,8 @@
                     <li>@Html.ActionLink("Contacts", "Index", "Contacts", new { Area = "" }, null)</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
+                @Html.Partial("_AdminPartial")
+              
             </div>
         </div>
     </div>
@@ -45,7 +48,7 @@
     </footer>
 
     @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/jqueryajax")
+ 
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

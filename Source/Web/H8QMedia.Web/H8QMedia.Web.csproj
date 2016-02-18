@@ -210,10 +210,9 @@
     <Compile Include="App_Start\SmsService.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\ArtController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ArticlesController.cs" />
     <Compile Include="Areas\Admin\Controllers\DataController.cs" />
-    <Compile Include="Areas\Admin\Controllers\DesignController.cs" />
-    <Compile Include="Areas\Admin\Controllers\PurchasesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KendoAdminGridBaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\SchoolController.cs" />
     <Compile Include="Areas\Admin\Controllers\ShopController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
@@ -257,6 +256,7 @@
     <Compile Include="Infrastructure\Constants\DisplayTemplatesPaths.cs" />
     <Compile Include="Infrastructure\Constants\EditorTemplatesPaths.cs" />
     <Compile Include="Infrastructure\Constants\WebConstants.cs" />
+    <Compile Include="Infrastructure\Extensions.cs" />
     <Compile Include="Infrastructure\HtmlHelpers\KendoHelpers.cs" />
     <Compile Include="Infrastructure\UploadHelpers\ImageUplouder.cs" />
     <Compile Include="Infrastructure\Validation\ValidateFilesCollectionAttribute.cs" />
@@ -406,7 +406,7 @@
     <Content Include="Areas\Admin\Views\Shop\Index.cshtml" />
     <Content Include="Areas\Admin\Views\School\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Design\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Art\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Index.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
@@ -514,6 +514,7 @@
     <Content Include="Areas\Users\Views\Lesson\Edit.cshtml" />
     <Content Include="Areas\Users\Views\CourseObjective\Create.cshtml" />
     <Content Include="Areas\Users\Views\CourseObjective\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\Article.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -619,11 +620,14 @@
     <Content Include="Views\School\_CoursesPagedPartial.cshtml" />
     <Content Include="Views\School\CourseObjectiveDetails.cshtml" />
     <Content Include="Views\School\LessonDetails.cshtml" />
+    <Content Include="Views\Shared\_AdminPartial.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Course - Copy\CourseInputModelCreate.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Course - Copy\CourseInputModelEdit.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ArtycleTypeEditor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\ViewModels\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Users\Views\Shared\" />
     <Folder Include="Content\Kendo\Black\" />
     <Folder Include="Content\Kendo\BlueOpal\" />

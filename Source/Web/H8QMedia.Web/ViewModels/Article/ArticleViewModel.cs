@@ -17,14 +17,17 @@
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public DateTime CreatedOn { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public DateTime? ModifiedOn { get; set; }
 
         public string Title { get; set; }
 
         public string Description { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public string SanitizedDescription
         {
             get
@@ -43,10 +46,13 @@
 
         public string AuthorId { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public ICollection<Comment> Comments { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public int LikesCount { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public ICollection<ImageViewModel> Images { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)

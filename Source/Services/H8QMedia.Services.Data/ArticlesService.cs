@@ -10,10 +10,12 @@
     public class ArticlesService : IArticlesService
     {
         private readonly IDbRepository<Article, int> articles;
+        private readonly IDbRepository<Image, int>image;
 
-        public ArticlesService(IDbRepository<Article, int> articles)
+        public ArticlesService(IDbRepository<Article, int> articles, IDbRepository<Image, int> image)
         {
             this.articles = articles;
+            this.image = image;
         }
 
         public IQueryable<Article> GetById(int id)
@@ -79,6 +81,7 @@
             entityToUpdate.Title = article.Title;
             entityToUpdate.Description = article.Description;
             entityToUpdate.Images = article.Images;
+            entityToUpdate.Type = article.Type;
 
             this.articles.Save();
         }

@@ -1,4 +1,5 @@
 ﻿@using H8QMedia.Common
+@using H8QMedia.Web.ViewModels.Article
 @model H8QMedia.Web.ViewModels.Art.ArtIndexViewModel
 @{
     ViewBag.Title = "Art";
@@ -20,3 +21,30 @@
     @Html.Partial("../Article/_ArticlePagedPartial", Model)
 
 </div>
+
+
+@(Html.Kendo().Grid<ArticleViewModel>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Bound(p => p.Id);
+            columns.Bound(p => p.Title).Width(120);
+            columns.Bound(p => p.AuthorName).Width(120);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+        })
+        .ToolBar(toolbar => toolbar.Create())
+        .Editable(editable => editable.Mode(GridEditMode.PopUp))
+        .Pageable()
+        .Sortable()
+        .Scrollable()
+        .HtmlAttributes(new { style = "height:550px;" })
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .Model(model => model.Id(p => p.Id))
+            .Create(update => update.Action("Create", "Art"))
+            .Read(read => read.Action("Read", "Art"))
+            .Update(update => update.Action("Update", "Art"))
+            .Destroy(update => update.Action("Destroy", "Art"))
+        )
+    )

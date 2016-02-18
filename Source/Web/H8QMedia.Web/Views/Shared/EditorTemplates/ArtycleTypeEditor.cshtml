@@ -1,0 +1,11 @@
+@using H8QMedia.Data.Models
+@using H8QMedia.Web.Infrastructure
+@model H8QMedia.Data.Models.ArticleType
+
+@(Html.Kendo().DropDownListFor(m => m)
+        .DataTextField("Text")
+        .DataValueField("Value")
+        .BindTo(Extensions.EnumToSelectList(typeof(ArticleType)))
+)
+
+

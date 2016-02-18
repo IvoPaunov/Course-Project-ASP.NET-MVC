@@ -4,7 +4,7 @@
     using H8QMedia.Data.Models;
     using H8QMedia.Web.Infrastructure.Mapping;
 
-    public class ImageViewModel : IMapFrom<Image>
+    public class ImageViewModel : IMapFrom<Image>, IMapTo<Image>
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }

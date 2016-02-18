@@ -1,0 +1,52 @@
+﻿@using H8QMedia.Web.ViewModels.Article
+@{
+    const string ControllerName = "Articles";
+    ViewBag.Title = ControllerName;
+}
+<h2>@ViewBag.Title</h2>
+
+
+<style type="text/css">
+    div.k-edit-form-container {
+        width: auto;
+    }
+
+        /*div.k-edit-form-container div.editor-field textarea, input.k-textbox {
+            width: 100%;
+            max-width: none;
+        }*/
+</style>
+
+@(Html.Kendo().Grid<ArticleInputModel>()
+        .Name("articles-grid")
+        .Columns(columns =>
+        {
+            columns.Bound(p => p.Id);
+            columns.Bound(p => p.AuthorName);
+            columns.Bound(p => p.Type);
+            columns.Bound(p => p.Title);
+            columns.Bound(p => p.Description);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+        })
+        .ToolBar(toolbar => toolbar.Create())
+        .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("Article").Window(w =>
+        {
+            w.Width(900);
+            w.Scrollable(false);
+            w.Resizable();
+        } ))
+        .Pageable(page => page.Refresh(true))
+        .Sortable()
+        .Scrollable()
+        .HtmlAttributes(new { style = "height:550px;" })
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(10)
+            .Model(model => model.Id(p => p.Id))
+            .Create(update => update.Action("Create", ControllerName))
+            .Read(read => read.Action("Read", ControllerName))
+            .Update(update => update.Action("Update", ControllerName))
+            .Destroy(update => update.Action("Destroy", ControllerName))
+        )
+    )
+
