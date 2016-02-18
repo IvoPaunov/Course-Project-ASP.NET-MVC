@@ -15,7 +15,7 @@
     using H8QMedia.Web.ViewModels.Image;
     using H8QMedia.Web.ViewModels.User;
 
-    public class CourseInputModel: IMapTo<Course>, IMapFrom<Course>, IHaveCustomMappings
+    public class CourseInputModel : IMapTo<Course>, IMapFrom<Course>, IHaveCustomMappings
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }

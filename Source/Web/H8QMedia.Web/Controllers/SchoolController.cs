@@ -3,11 +3,9 @@
     using System;
     using System.Linq;
     using System.Web.Mvc;
-    using H8QMedia.Data.Models;
+
     using H8QMedia.Services.Data.Contracts;
     using H8QMedia.Web.Infrastructure.Mapping;
-    using H8QMedia.Web.ViewModels.Art;
-    using H8QMedia.Web.ViewModels.Article;
     using H8QMedia.Web.ViewModels.Common;
     using H8QMedia.Web.ViewModels.Course;
     using H8QMedia.Web.ViewModels.School;

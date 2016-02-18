@@ -10,7 +10,7 @@
         [MaxLength(ValidationConstants.MaxLessonYoutubeVideoIdLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string YoutubeVideoId { get; set; }
 
-        public bool IsPublic { get; set; }
+        public bool IsPrivate { get; set; }
 
         public string TrainerId { get; set; }
 

@@ -275,6 +275,8 @@
     <Compile Include="ViewModels\Article\ArticleViewModel.cs" />
     <Compile Include="ViewModels\Article\ArticleInputModel.cs" />
     <Compile Include="ViewModels\Art\ArtIndexViewModel.cs" />
+    <Compile Include="ViewModels\Category\CategoryInputModel.cs" />
+    <Compile Include="ViewModels\Category\CategoryViewModel.cs" />
     <Compile Include="ViewModels\Comment\CommentInputModel.cs" />
     <Compile Include="ViewModels\Comment\CommentViewModel.cs" />
     <Compile Include="ViewModels\Common\PaginationViewModel.cs" />
@@ -634,9 +636,6 @@
     <Folder Include="Content\Kendo\Silver\" />
     <Folder Include="Content\Kendo\textures\" />
     <Folder Include="Content\Kendo\Uniform\" />
-    <Folder Include="ViewModels\Category\" />
-    <Folder Include="ViewModels\Message\" />
-    <Folder Include="ViewModels\Purchase\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Shared\DisplayTemplates\Category\" />
     <Folder Include="Views\Shared\DisplayTemplates\Like\" />

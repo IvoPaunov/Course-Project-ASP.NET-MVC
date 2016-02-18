@@ -23,6 +23,10 @@
         [MaxLength(ValidationConstants.MaxCourseObjectiveDescriptionLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Description { get; set; }
 
+        public string CreatorId { get; set; }
+
+        public virtual ApplicationUser Creator { get; set; }
+
         public virtual ICollection<Lesson> Lessons
         {
             get { return this.lessons; }

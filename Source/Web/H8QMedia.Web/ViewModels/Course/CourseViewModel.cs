@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Web.Mvc;
     using AutoMapper;
+    using Ganss.XSS;
     using H8QMedia.Data.Common;
     using H8QMedia.Data.Models;
     using H8QMedia.Web.Infrastructure.Mapping;
@@ -22,19 +23,20 @@
 
         public DateTime? ModifiedOn { get; set; }
 
-        [Required]
-        [MinLength(
-            ValidationConstants.MinInteractiveEntityTitleLength,
-            ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
-        [MaxLength(
-            ValidationConstants.MaxInteractiveEntityTitleLength,
-            ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Title { get; set; }
 
-        [MaxLength(
-            ValidationConstants.MaxInteractiveEntityDescriptionLength,
-            ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Description { get; set; }
+
+        public string SanitizedDescription
+        {
+            get
+            {
+                var sanitizer = new HtmlSanitizer();
+                sanitizer.AllowedAttributes.Add("class");
+
+                return sanitizer.Sanitize(this.Description);
+            }
+        }
 
         public virtual ICollection<CommentViewModel> Comments { get; set; }
 
