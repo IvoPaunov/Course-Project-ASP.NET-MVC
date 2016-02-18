@@ -91,7 +91,7 @@
         {
             var entityToDelete = this.items.GetById(id);
 
-            if (entityToDelete != null && entityToDelete.SellerId == userId)
+            if (entityToDelete != null)
             {
                 this.items.Delete(entityToDelete);
                 this.items.Save();

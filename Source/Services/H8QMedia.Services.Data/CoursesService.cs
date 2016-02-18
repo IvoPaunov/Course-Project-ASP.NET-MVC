@@ -80,7 +80,7 @@
         {
             var entityToDelete = this.courses.GetById(id);
 
-            if (entityToDelete != null && entityToDelete.Trainers.Any(x => x.Id == userId))
+            if (entityToDelete != null)
             {
                 this.courses.Delete(entityToDelete);
                 this.courses.Save();

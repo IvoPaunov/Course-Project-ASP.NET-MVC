@@ -11,9 +11,15 @@
 
         IQueryable<Lesson> GetByTrainerId(string userId);
 
+        IQueryable<Lesson> GetByCourseId(int courseId);
+
+        IQueryable<Lesson> GetByCourseObjectiveId(int courseObjectiveId);
+
         int Create(Lesson lesson);
 
         void Update(int id, Lesson lesson);
+
+        void AddToCourseObjective(int id, int courseObjectiveId);
 
         void Destroy(int id, string userId);
     }

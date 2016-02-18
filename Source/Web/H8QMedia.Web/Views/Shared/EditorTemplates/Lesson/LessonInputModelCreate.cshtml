@@ -1,8 +1,8 @@
-@model H8QMedia.Web.ViewModels.Article.ArticleInputModel
+@model H8QMedia.Web.ViewModels.Lesson.LessonInputModel
 
 <div class="container-fluid">
     <div class="row text-left">
-        <h3>Add new Art Article</h3>
+        <h3>Add new CourseObjective</h3>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="row form-horizontal">
@@ -19,22 +19,28 @@
                         @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @(Html.Kendo().EditorFor(model => model.Description)
-                                      .Name("Description")
-                                      .HtmlAttributes(new { style = "height:240px" })
-                                      .Encode(false)
-                                      .Resizable(resizable => resizable.Content(true).Toolbar(true))
-                            )
+                                  .Name("Description")
+                                  .HtmlAttributes(new { style = "height:240px" })
+                                  .Encode(false)
+                                  .Resizable(resizable => resizable.Content(true).Toolbar(true))
+                                  )
                             @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Files, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.YoutubeVideoId, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextBoxFor(model => model.Files, new { type = "file", multiple = "multiple" })
-                            @Html.ValidationMessageFor(model => model.Files, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.YoutubeVideoId, new { htmlAttributes = new { @class = "form-control full-width" } })
+                            @Html.ValidationMessageFor(model => model.YoutubeVideoId, "", new { @class = "text-danger" })
                         </div>
                     </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IsPrivate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.IsPrivate, new { htmlAttributes = new { @class = "form-control full-width" } })
+                        </div>
+                    </div>
+
                     <div class="form-group text-left">
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" value="Create" class="btn btn-info full-width" />

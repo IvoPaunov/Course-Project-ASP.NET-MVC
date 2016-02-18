@@ -220,8 +220,10 @@
     <Compile Include="Areas\Users\Controllers\ArtController.cs" />
     <Compile Include="Areas\Users\Controllers\CommentController.cs" />
     <Compile Include="Areas\Users\Controllers\CourseController.cs" />
+    <Compile Include="Areas\Users\Controllers\CourseObjectiveController.cs" />
     <Compile Include="Areas\Users\Controllers\DesignController.cs" />
     <Compile Include="Areas\Users\Controllers\ImageController.cs" />
+    <Compile Include="Areas\Users\Controllers\LessonController.cs" />
     <Compile Include="Areas\Users\Controllers\MessageController.cs" />
     <Compile Include="Areas\Users\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Users\Controllers\SchoolController.cs" />

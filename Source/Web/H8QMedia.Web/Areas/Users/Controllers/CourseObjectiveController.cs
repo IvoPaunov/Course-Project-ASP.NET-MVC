@@ -14,16 +14,15 @@
     using H8QMedia.Web.Infrastructure.UploadHelpers;
     using H8QMedia.Web.ViewModels.Course;
 
-    [Authorize(Roles = ApplicationRoles.Trainer)]
-    public class CourseController : BaseController
+    public class CourseObjectiveController : BaseController
     {
         private const int ItemsPerPage = 6;
-        private readonly ICoursesService courses;
+        private readonly ICourseObjectivesService objectives;
         private readonly IUsersService users;
 
-        public CourseController(ICoursesService courses,  IUsersService users)
+        public CourseObjectiveController(ICourseObjectivesService objectives, IUsersService users)
         {
-            this.courses = courses;
+            this.objectives = objectives;
             this.users = users;
         }
 
@@ -35,34 +34,16 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CourseInputModel model)
+        public ActionResult Create(CourseObjectiveInputModel model)
         {
             if (model != null && ModelState.IsValid)
             {
                 var currentUserId = this.UserProfile.Id;
-                var newArticle = this.Mapper.Map<Course>(model);
-                var imageUploader = new ImageUplouder();
-                var images = new HashSet<Image>();
-                string folderPath = Server.MapPath(WebConstants.ImagesMainPathMap + currentUserId);
+                var newArticle = this.Mapper.Map<CourseObjective>(model);
 
-                if (model.Files != null && model.Files.Count() > 0)
-                {
-                    foreach (var file in model.Files)
-                    {
-                        if (file != null
-                            && (file.ContentType == WebConstants.ContentTypeJpg || file.ContentType == WebConstants.ContentTypePng)
-                            && file.ContentLength < WebConstants.MaxImageFileSize)
-                        {
-                            images.Add(imageUploader.UploadImage(file, folderPath, currentUserId));
-                        }
-                    }
-                }
+                newArticle.CreatorId = currentUserId;
 
-                var trainer = this.users.UserById(currentUserId).FirstOrDefault();
-
-                newArticle.Trainers.Add(trainer);
-
-                var result = this.courses.Create(newArticle);
+                var result = this.objectives.Create(newArticle);
 
                 return this.RedirectToAction("Course", "School", new { area = "", id = result });
             }

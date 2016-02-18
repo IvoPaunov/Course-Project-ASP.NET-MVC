@@ -27,7 +27,7 @@
             var result = this.articles.All()
                 .OrderByDescending(x => x.CreatedOn);
 
-            return result.AsQueryable();
+            return result;
         }
 
         public IQueryable<Article> GetByUserId(string userId)
@@ -87,7 +87,7 @@
         {
             var entityToDelete = this.articles.GetById(id);
 
-            if (entityToDelete != null && entityToDelete.AuthorId == userId)
+            if (entityToDelete != null)
             {
                 this.articles.Delete(entityToDelete);
                 this.articles.Save();
