@@ -32,15 +32,9 @@
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {
             var data = this.articles.GetAll()
-                .To<ArticleInputModel>()
-                .ToList();
+                .To<ArticleInputModel>();
 
-            var serializer = new JavaScriptSerializer();
-            var result = new ContentResult();
-            serializer.MaxJsonLength = Int32.MaxValue; 
-            result.Content = serializer.Serialize(data.ToDataSourceResult(request));
-            result.ContentType = "application/json";
-            return result;
+            return this.GridOperationBigQueryable(data, request);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -57,7 +51,7 @@
                 model.Id = modelId;
                 model.AuthorId = currentUserId;
                 model.AuthorName = this.UserProfile.UserName;
-                return this.GridOperation(model, request);
+                return this.GridOperationObject(model, request);
             }
 
             return null;
@@ -73,7 +67,7 @@
 
                 this.articles.Update(model.Id, updated);
 
-                return this.GridOperation(model, request);
+                return this.GridOperationObject(model, request);
             }
 
             return null;
@@ -87,7 +81,7 @@
                 this.articles.Destroy(model.Id, null);
             }
 
-            return this.GridOperation(model, request);
+            return this.GridOperationObject(model, request);
         }
     }
 }
