@@ -1,2 +1,54 @@
-﻿<h2>Users Admin</h2>
+﻿@using H8QMedia.Web.Areas.Admin.ViewModels.User
+@{
+    const string ControllerName = "Users";
+    ViewBag.Title = ControllerName;
+}
+<h2>@ViewBag.Title</h2>
+
+
+<style type="text/css">
+    div.k-edit-form-container {
+        width: auto;
+    }
+</style>
+
+@(Html.Kendo().Grid<UserAdministrationModel>()
+        .Name("articles-grid")
+        .Columns(columns =>
+        {
+            columns.Bound(p => p.Id);
+            columns.Bound(p => p.UserName);
+            columns.Bound(p => p.Email);
+            columns.Bound(p => p.FirstName);
+            columns.Bound(p => p.LastName);
+            columns.Bound(p => p.IsAdmin);
+            columns.Bound(p => p.IsArtist);
+            columns.Bound(p => p.IsDesigner);
+            columns.Bound(p => p.IsRegular);
+            columns.Bound(p => p.IsSeller);
+            columns.Bound(p => p.IsStudent);
+            columns.Bound(p => p.IsTrainer);
+            columns.Bound(p => p.NewPassword);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+        })
+        .ToolBar(toolbar => toolbar.Create())
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .Pageable(page => page.Refresh(true))
+        .Resizable(resize => resize.Columns(true))
+        .Sortable()
+        .Scrollable()
+        .HtmlAttributes(new { style = "height:550px;" })
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(10)
+            .Model(model => model.Id(p => p.Id))
+            .Create(update => update.Action("Create", ControllerName))
+            .Read(read => read.Action("Read", ControllerName))
+            .Update(update => update.Action("Update", ControllerName))
+            .Destroy(update => update.Action("Destroy", ControllerName))
+        )
+)
+
+
+
 

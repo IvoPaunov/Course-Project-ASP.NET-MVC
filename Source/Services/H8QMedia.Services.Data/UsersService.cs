@@ -21,11 +21,26 @@
                     .Where(x => x.UserName == name);
         }
 
+        public IQueryable<ApplicationUser> GetAll()
+        {
+            return this.users.All();
+        }
+
         public IQueryable<ApplicationUser> UserById(string id)
         {
             return this.users
                  .All()
                  .Where(x => x.Id == id);
+        }
+
+        public IQueryable<ApplicationUser> AddToRole(string iduserId, string roleName)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IQueryable<ApplicationUser> RemoveFromRole(string iduserId, string roleName)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

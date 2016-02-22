@@ -211,11 +211,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ArticlesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\DataController.cs" />
     <Compile Include="Areas\Admin\Controllers\KendoAdminGridBaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\SchoolController.cs" />
     <Compile Include="Areas\Admin\Controllers\ShopController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\ViewModels\Category\CategoryViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\User\UserAdministrationModel.cs" />
     <Compile Include="Areas\Users\Controllers\ArtController.cs" />
     <Compile Include="Areas\Users\Controllers\CommentController.cs" />
     <Compile Include="Areas\Users\Controllers\CourseController.cs" />
@@ -515,6 +518,7 @@
     <Content Include="Areas\Users\Views\CourseObjective\Create.cshtml" />
     <Content Include="Areas\Users\Views\CourseObjective\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\Article.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -627,7 +631,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\ViewModels\" />
     <Folder Include="Areas\Users\Views\Shared\" />
     <Folder Include="Content\Kendo\Black\" />
     <Folder Include="Content\Kendo\BlueOpal\" />

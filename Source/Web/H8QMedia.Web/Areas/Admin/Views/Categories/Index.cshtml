@@ -1,0 +1,34 @@
+﻿@using H8QMedia.Web.ViewModels.Article
+@using H8QMedia.Web.Areas.Admin.ViewModels.Category
+
+@{
+    const string ControllerName = "Categories";
+    ViewBag.Title = ControllerName;
+}
+<h2>@ViewBag.Title</h2>
+
+@(Html.Kendo().Grid<CategoryViewModel>()
+        .Name("categories-grid")
+        .Columns(columns =>
+        {
+            columns.Bound(p => p.Id);
+            columns.Bound(p => p.Name);
+            columns.Command(command => { command.Edit(); }).Width(100);
+        })
+        .ToolBar(toolbar => toolbar.Create())
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .Pageable(page => page.Refresh(true))
+        .Sortable()
+        .Scrollable()
+        .HtmlAttributes(new { style = "height:550px;" })
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(10)
+            .Model(model => model.Id(p => p.Id))
+            .Create(update => update.Action("Create", ControllerName))
+            .Read(read => read.Action("Read", ControllerName))
+            .Update(update => update.Action("Update", ControllerName))
+
+        )
+)
+

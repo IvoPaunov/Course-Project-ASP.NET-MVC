@@ -7,6 +7,12 @@
     {
         IQueryable<ApplicationUser> GetUser(string name);
 
+        IQueryable<ApplicationUser> GetAll();
+
         IQueryable<ApplicationUser> UserById(string id);
+
+        IQueryable<ApplicationUser> AddToRole(string iduserId, string roleName);
+
+        IQueryable<ApplicationUser> RemoveFromRole(string iduserId, string roleName);
     }
 }
