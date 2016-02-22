@@ -14,5 +14,7 @@
         IQueryable<ApplicationUser> AddToRole(string iduserId, string roleName);
 
         IQueryable<ApplicationUser> RemoveFromRole(string iduserId, string roleName);
+
+        void Destroy(string userId);
     }
 }

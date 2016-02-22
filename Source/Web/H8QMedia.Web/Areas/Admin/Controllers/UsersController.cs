@@ -198,7 +198,7 @@
         {
             if (ModelState.IsValid && model != null)
             {
-               // this.articles.Destroy(model.Id, null);
+               this.users.Destroy(model.Id);
             }
 
             return this.GridOperationObject(model, request);

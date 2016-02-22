@@ -16,9 +16,9 @@
 
         public IQueryable<ApplicationUser> GetUser(string name)
         {
-           return this.users
-                    .All()
-                    .Where(x => x.UserName == name);
+            return this.users
+                     .All()
+                     .Where(x => x.UserName == name);
         }
 
         public IQueryable<ApplicationUser> GetAll()
@@ -41,6 +41,14 @@
         public IQueryable<ApplicationUser> RemoveFromRole(string iduserId, string roleName)
         {
             throw new System.NotImplementedException();
+        }
+
+        public void Destroy(string userId)
+        {
+            var userToDedlete = this.users.GetById(userId);
+
+            this.users.Delete(userToDedlete);
+            this.users.Save();
         }
     }
 }
