@@ -6,7 +6,7 @@
     using H8QMedia.Web.Controllers;
 
     [Authorize(Roles = ApplicationRoles.Admin)]
-    public class SchoolController : BaseController
+    public class SchoolController : KendoAdminGridBaseController
     {
         public ActionResult Index()
         {

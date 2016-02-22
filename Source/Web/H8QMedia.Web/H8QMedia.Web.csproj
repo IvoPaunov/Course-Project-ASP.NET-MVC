@@ -519,6 +519,7 @@
     <Content Include="Areas\Users\Views\CourseObjective\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\Article.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\SellingItem.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />

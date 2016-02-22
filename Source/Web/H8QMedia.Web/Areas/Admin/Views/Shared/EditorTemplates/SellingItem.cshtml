@@ -1,0 +1,53 @@
+﻿@using H8QMedia.Web.ViewModels.Image
+@model H8QMedia.Web.ViewModels.SellingItem.SellingItemInputModel
+
+
+<div class="k-edit-form-container" style="padding: 10px;">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="k-edit-form-container">
+        <div class="k-edit-form-container">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "k-edit-form-container" })
+                <br/>
+                <div class="k-edit-form-container">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "full-width" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.PriceBGN, htmlAttributes: new { @class = "" })
+                <br/>
+                <div class="k-edit-form-container">
+                    @Html.EditorFor(model => model.PriceBGN, new { htmlAttributes = new { @class = "full-width" } })
+                    @Html.ValidationMessageFor(model => model.PriceBGN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Availability, htmlAttributes: new { @class = "" })
+                <br />
+                <div class="k-edit-form-container">
+                    @Html.EditorFor(model => model.Availability, new { htmlAttributes = new { @class = "full-width" } })
+                    @Html.ValidationMessageFor(model => model.Availability, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="full-width">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "k-edit-form-container" })
+                    <br />
+                    <div class="k-edit-form-container">
+                        @(Html.Kendo().EditorFor(model => model.Description)
+                                  .Name("Description")
+                                  .HtmlAttributes(new { style = "height:240px; wihth:100%;", @class = "k-edit-form-container" })
+                                  .Encode(false)
+                                  .Resizable(resizable => resizable.Content(true).Toolbar(true))
+                        )
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
