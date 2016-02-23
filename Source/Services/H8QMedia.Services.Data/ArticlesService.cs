@@ -5,12 +5,11 @@
     using H8QMedia.Data.Common.Repositories;
     using H8QMedia.Data.Models;
     using H8QMedia.Services.Data.Contracts;
-    using H8QMedia.Common.Extensions;
 
     public class ArticlesService : IArticlesService
     {
         private readonly IDbRepository<Article, int> articles;
-        private readonly IDbRepository<Image, int>image;
+        private readonly IDbRepository<Image, int> image;
 
         public ArticlesService(IDbRepository<Article, int> articles, IDbRepository<Image, int> image)
         {

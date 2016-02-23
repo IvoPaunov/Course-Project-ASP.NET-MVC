@@ -37,8 +37,6 @@
         {
             var assembly = Assembly.GetExecutingAssembly();
 
-            //var names = assembly.GetManifestResourceNames();
-
             string result;
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))

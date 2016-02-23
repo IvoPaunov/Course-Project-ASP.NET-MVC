@@ -76,7 +76,7 @@
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, ArticleInputModel model)
         {
-            if (ModelState.IsValid && model != null)
+            if (this.ModelState.IsValid && model != null)
             {
                 this.articles.Destroy(model.Id, null);
             }

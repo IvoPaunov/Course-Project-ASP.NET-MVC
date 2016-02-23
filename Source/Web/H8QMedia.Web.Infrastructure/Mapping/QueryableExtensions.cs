@@ -14,7 +14,7 @@
             {
                 return source.ProjectTo(AutoMapperConfig.Configuration, membersToExpand);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

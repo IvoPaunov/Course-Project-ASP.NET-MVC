@@ -15,6 +15,7 @@
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
         public IDbSet<Category> Categories { get; set; }
 
         public IDbSet<Comment> Comments { get; set; }

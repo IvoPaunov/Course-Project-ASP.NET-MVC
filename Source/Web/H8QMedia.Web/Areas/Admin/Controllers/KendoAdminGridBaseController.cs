@@ -15,7 +15,7 @@
         {
             var serializer = new JavaScriptSerializer();
             var result = new ContentResult();
-            serializer.MaxJsonLength = Int32.MaxValue;
+            serializer.MaxJsonLength = int.MaxValue;
             var dataToShow = data.ToList();
             result.Content = serializer.Serialize(dataToShow.ToDataSourceResult(request));
             result.ContentType = "application/json";
@@ -25,7 +25,7 @@
 
         protected JsonResult GridOperationObject<T>(T model, [DataSourceRequest]DataSourceRequest request)
         {
-            return Json(new[] { model }.ToDataSourceResult(request, ModelState), JsonRequestBehavior.AllowGet);
+            return this.Json(new[] { model }.ToDataSourceResult(request, this.ModelState), JsonRequestBehavior.AllowGet);
         }
     }
 }

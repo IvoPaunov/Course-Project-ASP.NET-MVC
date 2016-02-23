@@ -14,7 +14,6 @@
             this.categories = categories;
         }
 
-
         public IQueryable<Category> All()
         {
             return this.categories.All();

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ApplicationRole.cs" />
     <Compile Include="ApplicationRoles.cs" />
+    <Compile Include="Assemblies.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

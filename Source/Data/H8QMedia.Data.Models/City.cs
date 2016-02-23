@@ -10,6 +10,5 @@
         [MinLength(ValidationConstants.MinCityNameLength, ErrorMessage = ValidationConstants.MinLengthErrorMessage)]
         [MaxLength(ValidationConstants.MaxCityNameLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Name { get; set; }
-
     }
 }

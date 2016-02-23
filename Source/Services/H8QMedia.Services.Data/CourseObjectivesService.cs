@@ -39,9 +39,10 @@
         {
             // TODO:
             return null;
-            //    this.objectives.All()
-            //.Where(x => x.CourseId == courseId)
-            //.OrderByDescending(x => x.CreatedOn);
+
+            // this.objectives.All()
+            // .Where(x => x.CourseId == courseId)
+            // .OrderByDescending(x => x.CreatedOn);
         }
 
         public int Create(CourseObjective objective)
@@ -68,8 +69,7 @@
         {
             var objective = this.objectives.GetById(objectiveId);
 
-           // objective.CourseId = courseId;
-
+            // objective.CourseId = courseId;
             this.objectives.Save();
         }
 

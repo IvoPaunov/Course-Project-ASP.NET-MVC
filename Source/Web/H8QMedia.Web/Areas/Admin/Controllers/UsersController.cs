@@ -70,26 +70,32 @@
                 {
                     this.userManager.AddToRole(newUser.Id, ApplicationRoles.Admin);
                 }
+
                 if (model.IsArtist)
                 {
                     this.userManager.AddToRole(newUser.Id, ApplicationRoles.Artist);
                 }
+
                 if (model.IsDesigner)
                 {
                     this.userManager.AddToRole(newUser.Id, ApplicationRoles.Designer);
                 }
+
                 if (model.IsRegular)
                 {
                     this.userManager.AddToRole(newUser.Id, ApplicationRoles.Regular);
                 }
+
                 if (model.IsSeller)
                 {
                     this.userManager.AddToRole(newUser.Id, ApplicationRoles.Seller);
                 }
+
                 if (model.IsStudent)
                 {
                     this.userManager.AddToRole(newUser.Id, ApplicationRoles.Student);
                 }
+
                 if (model.IsTrainer)
                 {
                     this.userManager.AddToRole(newUser.Id, ApplicationRoles.Trainer);

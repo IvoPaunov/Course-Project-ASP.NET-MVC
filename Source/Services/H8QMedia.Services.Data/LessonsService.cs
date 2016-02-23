@@ -37,21 +37,22 @@
 
         public IQueryable<Lesson> GetByCourseId(int courseId)
         {
-            //TODO:
+            // TODO:
             return null;
-            //return this.lessons.All()
-            //              .Where(x => x.CourseObjective.CourseId == courseId)
-            //              .OrderByDescending(x => x.CreatedOn);
+
+            /* return this.lessons.All()
+                            .Where(x => x.CourseObjective.CourseId == courseId)
+                            .OrderByDescending(x => x.CreatedOn); */
         }
 
         public IQueryable<Lesson> GetByCourseObjectiveId(int courseObjectiveId)
         {
-            //TODO:
+            // TODO:
             return null;
 
-            //return this.lessons.All()
-            //              .Where(x => x.CourseObjectiveId == courseObjectiveId)
-            //              .OrderByDescending(x => x.CreatedOn);
+            /* return this.lessons.All()
+                            .Where(x => x.CourseObjectiveId == courseObjectiveId)
+                            .OrderByDescending(x => x.CreatedOn); */
         }
 
         public int Create(Lesson lesson)

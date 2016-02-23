@@ -13,7 +13,7 @@
         public void RunBeforeAnyTests()
         {
             var autoMapperConfig = new AutoMapperConfig();
-            autoMapperConfig.Execute(Assembly.GetExecutingAssembly());
+            autoMapperConfig.Execute(Assembly.Load(Assemblies.Web));
         }
     }
 }

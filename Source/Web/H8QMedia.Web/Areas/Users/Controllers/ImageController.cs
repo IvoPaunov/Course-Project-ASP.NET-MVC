@@ -1,11 +1,8 @@
 ﻿namespace H8QMedia.Web.Areas.Users.Controllers
 {
-    using System.Net;
     using System.Web.Mvc;
-    using H8QMedia.Common;
     using H8QMedia.Services.Data.Contracts;
     using H8QMedia.Web.Controllers;
-    using H8QMedia.Web.ViewModels.Image;
 
     [Authorize]
     public class ImageController : BaseController
@@ -17,13 +14,13 @@
             this.images = images;
         }
 
+        // [ValidateAntiForgeryToken]
         [HttpPost]
-      //  [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             this.images.Delete(id);
 
-            return Json(id);
+            return this.Json(id);
         }
     }
 }

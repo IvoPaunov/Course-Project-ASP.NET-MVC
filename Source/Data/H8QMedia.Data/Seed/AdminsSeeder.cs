@@ -12,7 +12,6 @@
         public void Seed(ApplicationDbContext context)
         {
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-          //  var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
             if (!context.Users.Any(u => u.UserName == "IvkoBivko"))
             {

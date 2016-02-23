@@ -37,7 +37,7 @@
         [ValidateAntiForgeryToken]
         public ActionResult Create(CourseInputModel model)
         {
-            if (model != null && ModelState.IsValid)
+            if (model != null && this.ModelState.IsValid)
             {
                 var currentUserId = this.UserProfile.Id;
                 var newArticle = this.Mapper.Map<Course>(model);
