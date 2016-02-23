@@ -11,19 +11,7 @@
                 </h5>
             </div>
             <div class="col-md-4 text-right">
-                @if (Request.IsAuthenticated && User.Identity.GetUserName() == Model.CreatorName)
-                {
-                    <div class="col-md-8">
-                        <a href="/Users/CourseObjective/Edit/@Model.Id" class="btn bbtn-xs btn-primary">Edit</a>
-                    </div>
-                    <div class="col-md-4">
-                        @using (Html.BeginForm("Destroy", "CourseObjective", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <input type="submit" value="X" class="btn btn-xs btn-danger" />
-                        }
-                    </div>
-                }
+                @Html.Partial("~/Views/Shared/School/_CourseObjectiveServiceButtonsPartial.cshtml", Model)
             </div>
         </div>
     </div>
@@ -49,13 +37,13 @@
                 </div>
                 <div class="col-md-3">
                     <span>
-                        
+
                     </span>
                 </div>
                 <div class="col-md-3  text-right">
                     <i class="fa fa-thumbs-o-up"></i>
                     <span>
-                     
+
                     </span>
                 </div>
             </div>

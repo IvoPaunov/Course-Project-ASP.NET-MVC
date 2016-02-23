@@ -11,19 +11,7 @@
                 </h5>
             </div>
             <div class="col-md-4 text-right">
-                @if (Request.IsAuthenticated && User.Identity.GetUserId() == Model.AuthorId)
-                {
-                    <div class="col-md-8 text-right">
-                        <a href="/Users/@Model.ArticleType.ToString()/Edit/@Model.Id" class="btn btn-xs btn-primary">Edit</a>
-                    </div>
-                    <div class="col-md-4 text-right">
-                        @using (Html.BeginForm("Destroy", Model.ArticleType.ToString(), new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <input type="submit" value="X" class="btn btn-xs btn-danger" />
-                        }
-                    </div>
-                }
+                @Html.Partial("~/Views/Shared/Article/_ArticleServiceButtonsPartial.cshtml", Model)
             </div>
         </div>
     </div>

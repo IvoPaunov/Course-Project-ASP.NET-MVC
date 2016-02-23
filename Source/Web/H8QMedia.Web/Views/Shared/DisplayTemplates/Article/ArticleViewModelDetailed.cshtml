@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-9">
                 <h4 class="wrap-words ">
-                        <strong class="wrap-words"> @Model.Title </strong>
+                    <strong class="wrap-words"> @Model.Title </strong>
                 </h4>
             </div>
             <div class="col-md-3 text-right">
@@ -16,19 +16,9 @@
                         &lt; &nbsp;
                     </button>
                 </div>
-                @if (Request.IsAuthenticated && User.Identity.GetUserId() == Model.AuthorId)
-                {
-                    <div class="col-md-4">
-                        <a href="/Users/@Model.ArticleType.ToString()/Edit/@Model.Id" class="btn btn-xs btn-primary">Edit</a>
-                    </div>
-                    <div class="col-md-4">
-                        @using (Html.BeginForm("Destroy", @Model.ArticleType.ToString(), new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <input type="submit" value="X" class="btn btn-xs btn-danger"/>
-                        }
-                    </div>
-                }
+                <div class="col-md-8">
+                    @Html.Partial("~/Views/Shared/Article/_ArticleServiceButtonsPartial.cshtml", Model)
+                </div>
             </div>
         </div>
     </div>
@@ -36,7 +26,7 @@
         <div class="row">
             <div class="col-md-12">
                 <blockquote>
-                  @Html.Raw(Model.SanitizedDescription)
+                    @Html.Raw(Model.SanitizedDescription)
                 </blockquote>
             </div>
         </div>

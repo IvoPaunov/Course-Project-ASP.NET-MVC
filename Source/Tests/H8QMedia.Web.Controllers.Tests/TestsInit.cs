@@ -4,13 +4,13 @@
     using H8QMedia.Common;
     using H8QMedia.Web;
     using H8QMedia.Web.Infrastructure.Mapping;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
 
-    [TestClass]
+    [SetUpFixture]
     public class TestsInit
     {
-        [AssemblyInitialize]
-        public static void AssemblyInit(TestContext context)
+        [SetUp]
+        public void RunBeforeAnyTests()
         {
             var autoMapperConfig = new AutoMapperConfig();
             autoMapperConfig.Execute(Assembly.GetExecutingAssembly());

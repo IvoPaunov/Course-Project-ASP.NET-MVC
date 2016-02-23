@@ -1,0 +1,15 @@
+﻿@model H8QMedia.Web.ViewModels.SellingItem.SellingItemViewModel
+
+@if (Request.IsAuthenticated && User.Identity.GetUserId() == Model.SellerId)
+{
+    <div class="col-md-8">
+        <a href="/Users/SellingItems/Edit/@Model.Id" class="btn btn-xs btn-primary">Edit</a>
+    </div>
+    <div class="col-md-4">
+        @using (Html.BeginForm("Destroy", "SellingItems", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
+        {
+            @Html.AntiForgeryToken()
+            <input type="submit" value="X" class="btn btn-xs btn-danger" />
+        }
+    </div>
+}

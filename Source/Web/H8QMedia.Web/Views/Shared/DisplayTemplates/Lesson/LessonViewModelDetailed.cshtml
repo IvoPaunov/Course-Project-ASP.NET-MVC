@@ -16,19 +16,9 @@
                         &lt; &nbsp;
                     </button>
                 </div>
-                @if (Request.IsAuthenticated && User.Identity.GetUserId() == Model.TrainerId)
-                {
-                    <div class="col-md-4">
-                        <a href="/Users/Lesson/Edit/@Model.Id" class="btn btn-xs btn-primary">Edit</a>
-                    </div>
-                    <div class="col-md-4">
-                        @using (Html.BeginForm("Destroy", "Lesson", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <input type="submit" value="X" class="btn btn-xs btn-danger"/>
-                        }
-                    </div>
-                }
+                <div class="col-md-8">
+                    @Html.Partial("~/Views/Shared/School/_LessonServiceButtonsPartial.cshtml", Model)
+                </div>
             </div>
         </div>
     </div>

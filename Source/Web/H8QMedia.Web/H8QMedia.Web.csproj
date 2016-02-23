@@ -639,6 +639,11 @@
     <Content Include="Views\Home\_ArticleListedPartial.cshtml" />
     <Content Include="Views\Home\_CourseListedPartial.cshtml" />
     <Content Include="Views\Home\_SellingItemsListedPartial.cshtml" />
+    <Content Include="Views\Shared\Article\_ArticleServiceButtonsPartial.cshtml" />
+    <Content Include="Views\Shared\School\_CourseServiceButtonsPartial.cshtml" />
+    <Content Include="Views\Shared\SellingItem\_SellingItemServiceButtonsPartial.cshtml" />
+    <Content Include="Views\Shared\School\_LessonServiceButtonsPartial.cshtml" />
+    <Content Include="Views\Shared\School\_CourseObjectiveServiceButtonsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,19 @@
+﻿@using H8QMedia.Common
+@model H8QMedia.Web.ViewModels.Course.CourseViewModel
+
+@if (Request.IsAuthenticated && (User.IsInRole(ApplicationRoles.Admin) || User.IsInRole(ApplicationRoles.Trainer)))
+{
+    if (Model.Trainers.Any(x => x.Id == User.Identity.GetUserId()))
+    {
+        <div class="col-md-8">
+            <a href="/Users/Course/Edit/@Model.Id" class="btn btn-xs btn-primary">Edit</a>
+        </div>
+        <div class="col-md-4">
+            @using (Html.BeginForm("Destroy", "Course", new { area = "Users", id = Model.Id }, FormMethod.Post, new { @class = "" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="submit" value="X" class="btn btn-xs btn-danger" />
+            }
+        </div>
+    }
+}
