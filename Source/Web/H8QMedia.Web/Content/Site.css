@@ -95,3 +95,7 @@ hr {
     margin: 0;
     margin-bottom: 8px;
 }
+
+img {
+    max-height: 400px;
+}

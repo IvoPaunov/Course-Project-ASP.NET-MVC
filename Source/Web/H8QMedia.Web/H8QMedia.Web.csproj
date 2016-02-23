@@ -240,6 +240,7 @@
     <Compile Include="Controllers\ArtController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\DesignController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KendoGridAdministrationController.cs" />
     <Compile Include="Controllers\SchoolController.cs" />
@@ -308,6 +309,9 @@
     <Content Include="Content\custom.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\400.jpg" />
+    <Content Include="Content\Images\404.jpg" />
+    <Content Include="Content\Images\500.jpg" />
     <Content Include="Content\Kendo\kendo.black.min.css" />
     <Content Include="Content\Kendo\kendo.black.mobile.min.css" />
     <Content Include="Content\Kendo\kendo.blueopal.min.css" />
@@ -629,6 +633,9 @@
     <Content Include="Views\Shared\EditorTemplates\Course - Copy\CourseInputModelCreate.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Course - Copy\CourseInputModelEdit.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ArtycleTypeEditor.cshtml" />
+    <Content Include="Views\Error\Error400.cshtml" />
+    <Content Include="Views\Error\Error404.cshtml" />
+    <Content Include="Views\Error\Error500.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
