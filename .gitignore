@@ -185,7 +185,7 @@ ClientBin/
 *.publishsettings
 node_modules/
 orleans.codegen.cs
-[Kk]endo/
+# [Kk]endo/
 [Uu]serImages
 
 # RIA/Silverlight projects
