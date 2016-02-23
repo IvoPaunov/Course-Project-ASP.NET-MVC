@@ -1,0 +1,10 @@
+﻿@model System.Collections.Generic.IEnumerable<H8QMedia.Web.ViewModels.Course.CourseViewModel>
+
+<div class="row">
+    @foreach (var course in Model)
+    {
+        <div class="col-md-3">
+            @Html.DisplayFor(model => course, DisplayTemplatesPaths.CourseViewModel)
+        </div>
+    }
+</div>

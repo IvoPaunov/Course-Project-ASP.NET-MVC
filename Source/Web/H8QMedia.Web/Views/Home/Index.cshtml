@@ -1,10 +1,51 @@
-﻿@*@model H8QMedia.Web.ViewModels.Home.IndexViewModel*@
+﻿@model H8QMedia.Web.ViewModels.Home.HomeIndexViewModel
 
 @{
     ViewBag.Title = "Home Page";
 }
-<h1>HOME Public</h1>
 
-@(Html.Kendo()
-.DatePicker()
-.Name("datepicker"))
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron text-center">
+                <h1>WELLCOME TO H8Q Meda</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <h5>Last Arts</h5>
+            @Html.Partial("../Home/_ArticleListedPartial", Model.Arts)
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <h5>Last Designs</h5>
+            @Html.Partial("../Home/_ArticleListedPartial", Model.Designs)
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <h5>Last Courses</h5>
+            @Html.Partial("../Home/_CourseListedPartial", Model.Courses)
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <h5>Last Items in the shop</h5>
+            @Html.Partial("../Home/_SellingItemsListedPartial", Model.ItemsForSale)
+        </div>
+    </div>
+
+</div>

@@ -79,59 +79,5 @@
 
             return this.View(art);
         }
-
-        [HttpPost]
-        public ActionResult Read([DataSourceRequest]DataSourceRequest request)
-        {
-            var arts = this.articles.GetAll()
-                .To<ArticleViewModel>()
-                .ToDataSourceResult(request);
-
-            return this.Json(arts);
-        }
-
-        [HttpPost]
-        public ActionResult Create([DataSourceRequest]DataSourceRequest request, ArticleViewModel model)
-        {
-            if (model != null && this.ModelState.IsValid)
-            {
-                var modelId = this.articles.Create(
-                    model.Title,
-                    null,
-                    this.UserProfile.Id);
-
-                model.Id = modelId;
-                return this.GridOperation(model, request);
-            }
-
-            return null;
-        }
-
-        [HttpPost]
-        public ActionResult Update([DataSourceRequest]DataSourceRequest request, ArticleViewModel model)
-        {
-            if (model != null && this.ModelState.IsValid)
-            {
-                this.articles.Update(
-                  model.Id,
-                    model.Title,
-                    null);
-
-                return this.GridOperation(model, request);
-            }
-
-            return this.GridOperation(model, request);
-        }
-
-        [HttpPost]
-        public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, ArticleViewModel model)
-        {
-            return this.GridOperation(model, request);
-        }
-
-        protected JsonResult GridOperation<T>(T model, [DataSourceRequest]DataSourceRequest request)
-        {
-            return Json(new[] { model }.ToDataSourceResult(request, ModelState));
-        }
     }
 }

@@ -1,0 +1,10 @@
+﻿@model System.Collections.Generic.IEnumerable<H8QMedia.Web.ViewModels.SellingItem.SellingItemViewModel>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            @Html.DisplayFor(model => item, DisplayTemplatesPaths.SellingItemViewModel)
+        </div>
+    }
+</div>
