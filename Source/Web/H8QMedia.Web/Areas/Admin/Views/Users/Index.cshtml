@@ -37,6 +37,7 @@
         .Resizable(resize => resize.Columns(true))
         .Sortable()
         .Scrollable()
+        .Filterable()
         .HtmlAttributes(new { style = "height:550px;" })
         .DataSource(dataSource => dataSource
             .Ajax()

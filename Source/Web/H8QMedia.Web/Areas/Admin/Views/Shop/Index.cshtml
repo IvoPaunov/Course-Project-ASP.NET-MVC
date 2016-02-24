@@ -39,6 +39,7 @@
         .Pageable(page => page.Refresh(true))
         .Sortable()
         .Scrollable()
+        .Filterable()
         .HtmlAttributes(new { style = "height:550px;" })
         .DataSource(dataSource => dataSource
             .Ajax()
