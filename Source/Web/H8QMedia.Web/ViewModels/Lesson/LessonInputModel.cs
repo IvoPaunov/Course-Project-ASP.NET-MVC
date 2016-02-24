@@ -23,6 +23,7 @@
             ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Title { get; set; }
 
+        [AllowHtml]
         [MaxLength(
             ValidationConstants.MaxInteractiveEntityDescriptionLength,
             ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]

@@ -36,7 +36,8 @@
         {
             var model = this.courses
                 .GetByTrainerId(this.UserProfile.Id)
-                .To<CourseViewModel>();
+                .To<CourseViewModel>()
+                .ToList();
 
             return this.PartialView("_CoursesPartial", model);
         }
@@ -47,7 +48,8 @@
         {
             var model = this.objectives
                   .GetByCreatorId(this.UserProfile.Id)
-                  .To<CourseObjectiveViewModel>();
+                  .To<CourseObjectiveViewModel>()
+                  .ToList();
 
             return this.PartialView("_CoursesObjectivesPartial", model);
         }
@@ -58,7 +60,8 @@
         {
             var model = this.lessons
                 .GetByTrainerId(this.UserProfile.Id)
-                .To<LessonViewModel>();
+                .To<LessonViewModel>()
+                .ToList();
 
             return this.PartialView("_LessonsPartial", model);
         }

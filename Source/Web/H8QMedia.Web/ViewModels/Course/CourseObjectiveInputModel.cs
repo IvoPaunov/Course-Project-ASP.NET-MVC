@@ -24,6 +24,7 @@
 
         public string CreatorId { get; set; }
 
+        [AllowHtml]
         [MaxLength(ValidationConstants.MaxCourseObjectiveDescriptionLength, ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Description { get; set; }
 

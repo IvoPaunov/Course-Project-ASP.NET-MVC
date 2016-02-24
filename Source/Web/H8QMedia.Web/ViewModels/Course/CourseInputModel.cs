@@ -31,6 +31,7 @@
             ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
         public string Title { get; set; }
 
+        [AllowHtml]
         [MaxLength(
             ValidationConstants.MaxInteractiveEntityDescriptionLength,
             ErrorMessage = ValidationConstants.MaxLengthErrorMessage)]
@@ -38,8 +39,8 @@
 
         public virtual ICollection<ImageViewModel> Images { get; set; }
 
-        [NotMapped]
         // [ValidateFile(ErrorMessage = "Please select a JPEG image smaller than 1MB")]
+        [NotMapped]
         public IEnumerable<HttpPostedFileBase> Files { get; set; }
 
         public DateTime StartDate { get; set; }

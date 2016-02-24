@@ -22,7 +22,8 @@
         public void Render_default_view_for_get_to_index()
         {
             this._controller.WithCallTo(c => c.Index(1))
-                .ShouldRenderView("Index");
+                .ShouldRenderDefaultView();
+
         }
     }
 }

@@ -8,7 +8,7 @@
 
 <div class="container">
     
-    @if (Request.IsAuthenticated && User.IsInRole(ApplicationRoles.Admin))
+    @if (Request.IsAuthenticated && (User.IsInRole(ApplicationRoles.Admin) || User.IsInRole(ApplicationRoles.Artist)))
     {
         <div calss="row text-center">
             <div class="col-md-12">

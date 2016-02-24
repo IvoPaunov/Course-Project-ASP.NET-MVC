@@ -21,7 +21,7 @@
         <div class="panel-body wrap-words article-preview-body">
             <div class="row">
                 <div class="col-md-12">
-                    @Model.Description
+                    @Html.Raw(Model.SanitizedDescription)
                 </div>
             </div>
         </div>
